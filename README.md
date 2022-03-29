@@ -1,3 +1,3 @@
 # Pwnable
 
->_ Binary Exploitation exercises and scripts
+Binary Exploitation exercises and scripts
