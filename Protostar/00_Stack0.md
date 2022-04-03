@@ -66,7 +66,7 @@ DESCRIPTION
 
 Ngay đầu mô tả ta đã thấy không bao giờ sử dụng hàm này vì gets nhận 1 dòng ký tự từ stdin cho đến khi gặp ký tự newline thì thay thế newline = NULL byte ('\0') và đặc biệt hàm không kiểm tra số ký tự được nhập vào -> gây ra buffer overflow.
 
-`Stack Zero` yêu cầu chúng ta thay đổi giá trị mặc định của biến `modified` != `0`. Ta sẽ nhập nhiều hơn 64 ký tự của `buffer` với gets để ghi đè lên biến `modified` theo như bố cục trên STACK.
+`STACK ZERO` yêu cầu chúng ta thay đổi giá trị mặc định của biến `modified` != `0`. Ta sẽ nhập nhiều hơn 64 ký tự của `buffer` với gets để ghi đè lên biến `modified` theo như bố cục trên STACK.
 
 ```
 root@protostar:/opt/protostar/bin# python -c 'print "A" * 65' | ./stack0
