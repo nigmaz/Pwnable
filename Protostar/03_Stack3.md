@@ -43,9 +43,9 @@ int main(int argc, char **argv)
 
 `STACK THREE` quay lại với khai thác buffer overflow thông qua hàm nhập stdin gets().
 
-Trong source code ta thấy hàm main khai báo một con trỏ hàm `volatile int (*fp)();`, con trỏ này nhận giá trị bằng 0 và nếu được thay đổi thỏa mãn điều kiện != 0 nó sẽ được gọi và chuyển flow chương trình tới địa chỉ bằng với giá trị của nó. Và đề bài yêu cầu flow đến hàm `win()`. Vậy nên điều đầu tiên đó là tìm địa chỉ của `win()` và ghi đè nó vào con trỏ hàm fp.
+Trong source code ta thấy hàm main khai báo một con trỏ hàm `volatile int (*fp)();`, con trỏ này nhận giá trị bằng 0 và nếu được thay đổi thỏa mãn điều kiện != 0 nó sẽ được gọi và chuyển flow chương trình tới địa chỉ mà nó trỏ tới. Và đề bài yêu cầu flow đến hàm `win()`, vậy nên điều đầu tiên đó là tìm địa chỉ của `win()` và sau đó ghi đè nó vào con trỏ hàm fp.
 
-Tìm đại chỉ hàm win() qua gdb:
+Tìm địa chỉ hàm win() qua gdb:
 
 ```
 root@protostar:/opt/protostar/bin# gdb -q ./stack3                                                      
