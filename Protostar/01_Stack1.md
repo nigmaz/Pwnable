@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 
 ## Solutions
 
-`STACK ONE` là nâng cấp của `STACK ZERO` với yêu cầu bây giờ là chúng ta thay đổi giá trị của biến `modified` bằng giá trị đưuọc yêu cầu là `0x61626364` và thay việc lấy stdin từ gets thì `buffer` được sao chép các ký tự từ `argv[1]` - `Đối số thứ nhất của chương trình` thông qua hàm strcpy() cũng có thể khai thác buffer overflow.
+`STACK ONE` là nâng cấp của `STACK ZERO` với yêu cầu bây giờ là chúng ta thay đổi giá trị của biến `modified` bằng giá trị được yêu cầu là `0x61626364` và thay việc lấy stdin từ gets thì `buffer` được sao chép các ký tự từ `argv[1]` - `Đối số thứ nhất của chương trình` thông qua hàm strcpy() cũng có thể khai thác buffer overflow.
 
 `$ man strcpy`
 
@@ -65,6 +65,10 @@ you have correctly got the variable to the right value
 ```
 
 ## Documents
+
 <https://itandsecuritystuffs.wordpress.com/2014/03/18/understanding-buffer-overflows-attacks-part-1/>
+
 <https://www.coengoedegebure.com/buffer-overflow-attacks-explained/>
+
 <https://en.wikipedia.org/wiki/Endianness>
+
