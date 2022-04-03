@@ -49,7 +49,7 @@ Ta tiến hành set giá trị cho biến môi trường `GREENIE`:
 root@protostar:/opt/protostar/bin# GREENIE=$(python -c 'print "A" * 64 + "\x0a\x0d\x0a\x0d"')           
 root@protostar:/opt/protostar/bin# export GREENIE 
 ```
-Lưu ý `Little edian` và lưu biến môi trường vào danh sách.
+Lưu ý `Little Edian` và lưu biến môi trường vào danh sách.
 
 ```
 root@protostar:/opt/protostar/bin# ./stack2                                                             
