@@ -66,9 +66,9 @@ you have correctly got the variable to the right value
 
 ## Documents
 
-<https://itandsecuritystuffs.wordpress.com/2014/03/18/understanding-buffer-overflows-attacks-part-1/>
+<https://en.wikipedia.org/wiki/Stack-based_memory_allocation>
 
-<https://www.coengoedegebure.com/buffer-overflow-attacks-explained/>
+<https://www.educative.io/edpresso/what-is-gets-in-c>
 
 <https://en.wikipedia.org/wiki/Endianness>
 
