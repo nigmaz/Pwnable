@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 
 `FORMAT FOUR` cho chúng ta thấy được khi overwrite everywhere sử dụng format string được ghi vào những vị trí chuyển hướng thực thi trong chương trình sẽ giúp chúng ta điều khiển luồng thực thi chương trình thực thi theo ý ta muốn.
 
-Thử thách này hoàn thành khi ta in ra được dòng chữ `"code execution redirected! you win"` nhưng lại không hề có điều kiện hay chỗ nào gọi đến hàm `hello()` trong hai hàm mà chương trình sẽ thực thi là `vuln()` và `main()`.
+Thử thách này hoàn thành khi ta in ra được dòng chữ `"code execution redirected! you win"` nhưng lại không hề có điều kiện hay chỗ nào gọi đến hàm `hello()` trong hai hàm mà chương trình sẽ thực thi là `main()` và  `vuln()`.
 
 Ý tưởng của bài này là sẽ ghi đè địa chỉ hàm `hello()` lên địa chỉ của hàm `exit(1)` được lưu trong `GOT - Global Offset Table` để khi thoát hàm `vuln()` chương trình sẽ chuyển hướng thực thi tới `hello()` thay vì gọi hàm `exit(1)` và thoát chương trình.
 
@@ -109,7 +109,7 @@ $%&'                                                                            
 code execution redirected! you win
 ```
 
-Cách điền`hn-hn` bạn có thể tự viết nó khi đã nắm vững hơn cách overwrite everywhere bằng format strings.
+Cách điền `hn-hn` bạn có thể tự viết nó khi đã nắm vững hơn cách overwrite everywhere bằng format strings.
 
 ```
 python -c 'print "\x24\x97\x04\x08\x26\x97\x04\x08" + "%" + str(0x84b4 - 8) + "x%4$hn" + "%" + str(0x10804 - 0x84b4) + "x%5$hn"' | ./format4
