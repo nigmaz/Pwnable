@@ -37,8 +37,8 @@ Ta có cấu trúc của stack memory sẽ nhìn như này:
      high memory adddress
   | |====================| 
   | |   name-parameter   |  ^
-  | |====================|  | buffer
-  S |   return address   |  | fill
+  | |====================|  | STACK
+  S |   return address   |  | grow
   T |====================|  | direction
   A |  base-pointer|'''''|  |
   C |==============|'''''|  |
