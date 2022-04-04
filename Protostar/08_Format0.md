@@ -51,11 +51,11 @@ root@protostar:/opt/protostar/bin# ./format0 $(python -c 'print "A" * 64 + "\xef
 you have hit the target correctly :)
 ```
 
-Nhưng thử thách có gợi ý sẽ tốt hơn nếu như chúng ta sử dụng nhỏ hơn 10 bytes dầu vào - nghĩa là khai thác theo đúng mục tiêu thử thách muốn chúng ta học được là khai thác format strings.
+Nhưng thử thách có gợi ý sẽ tốt hơn nếu như chúng ta sử dụng nhỏ hơn 10 bytes đầu vào - nghĩa là khai thác theo đúng mục tiêu thử thách muốn chúng ta học được là khai thác format strings.
 
 `%[parameter][flags][width][.precision][length]type`
 
-Một trong những tùy chọn giữa ký tự `%` và kỳ tự định dạng `type` là `width` - độ dài tối thiểu của dữ liệu được `printf` in ra.
+Một trong những tùy chọn giữa ký tự `%` và ký tự định dạng `type` là `[width]` - độ dài tối thiểu của dữ liệu được `printf` in ra.
 
 VD: 
 
