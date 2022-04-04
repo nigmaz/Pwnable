@@ -138,7 +138,9 @@ BK  |    ...    |            BK  |     b     |          BK  |     b     |
 
 * Lấy giá trị `a` điền vào vị trí `b + 8`.
 
-Quá trình trước và sau khi `unlink()` bạn có thể xem ảnh này để rõ hơn [Unlink](https://github.com/l1j9m4-0n1/Blog/blob/main/zOther/unlink.jpg)
+Quá trình trước và sau khi `unlink()` bạn có thể xem ảnh này để rõ hơn 
+
+<img src="https://github.com/l1j9m4-0n1/Blog/blob/main/zOther/unlink.jpg">
 
 +) Vì vậy, nếu chúng ta có thể kiểm soát các giá trị của `P->bk` và `P->fk`, chúng ta có thể ghi dữ liệu tùy ý vào một vị trí tùy ý trong bộ nhớ (overwrite everywhere).
 
