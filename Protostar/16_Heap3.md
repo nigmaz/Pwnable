@@ -102,7 +102,7 @@ nextchunk -> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 Bạn hãy nhớ chúng và giờ chúng ta sẽ bắt đầu thử thách.
 
-Đây là bố cục của heap sau khi cấp phát cho ba con trỏ `a`, `b` và `c` rồi lấy input từ ba đối số của chương trình.
+Đây là bố cục của heap sau khi cấp phát cho ba con trỏ `a`, `b` và `c` rồi lấy input thông qua `strcpy()` (có thể buffer overflow) từ ba đối số của chương trình.
 
 ```
 (gdb) r AAAA BBBB CCCC
