@@ -64,9 +64,9 @@ Giả sử ret = 0xb7777777
 	     ret & 0xb0000000
 
 	     0xb7777777 
-     & 0xb0000000
+     	   & 0xb0000000
 	     __________
-       0xb0000000 <-- luôn bằng 0xb0000000
+             0xb0000000 <-- luôn bằng 0xb0000000
 ```
 
 Đoạn code này có khả năng chặn mọi địa chỉ trả về mà ta cố ghi đè vào EIP (tất cả bị đưa về `0xb0000000`) nếu như địa chỉ đó nằm trong khoảng từ `0xb0000000` đến `0xbfffffff`.
