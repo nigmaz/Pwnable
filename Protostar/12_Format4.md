@@ -87,7 +87,7 @@ End of assembler dump.
 (gdb)
 ```
 
-Vậy là `GOT của exit(1) = 0x8049724`.
+Vậy là địa chỉ `GOT của exit(1)` = 0x8049724.
 
 ```
                  1      2      3
