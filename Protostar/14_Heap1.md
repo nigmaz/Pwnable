@@ -59,8 +59,8 @@ Bộ nhớ Heap được cấp phát liên tục nên Heap được bố cục n
 Do buffer overflow từ cuộc gọi `strcpy` đầu tiên, chúng ta có thể ghi đè con trỏ `name` của i2 bằng một vị trí mà chúng ta muốn cuộc gọi `strcpy` thứ hai ghi vào. Với điều này, chúng ta có thể ghi dữ liệu tùy ý vào bất kỳ vị trí nào trong bộ nhớ mà chúng tôi muốn.
 
 ```
-$./heap1 AAAA BBBB
-
+(gdb) r AAAA BBBB
+...
 (gdb) x/50x  0x804a000
 0x804a000:      0x00000000      0x00000011      0x00000001      0x0804a018
 0x804a010:      0x00000000      0x00000011      0x41414141      0x00000000
