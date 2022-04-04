@@ -44,6 +44,64 @@ int main(int argc, char **argv)
 
 `HEAP THREE` muốn chúng ta tìm hiểu về `metadata heap` và cách chúng ta có thể khai thác nó để thực thi mã. Để vượt qua thử thách này bạn cần sử dụng 1 kỹ thuật là `unlink()`.
 
+Trước khi bắt đầu thử thách ta sẽ xem qua hai thứ.
+
+Một `chunk` được phân bổ do DougLea's Malloc quản lý trông giống như sau:
+
+```
+    chunk -> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+             | prev_size: size of the previous chunk, in bytes (used   |
+             | by dlmalloc only if this previous chunk is free)        |
+             +---------------------------------------------------------+
+             | size: size of the chunk (the number of bytes between    |
+             | "chunk" and "nextchunk") and 2 bits status information  |
+      mem -> +---------------------------------------------------------+
+             | fd: not used by dlmalloc because "chunk" is allocated   |
+             | (user data therefore starts here)                       |
+             + - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+             | bk: not used by dlmalloc because "chunk" is allocated   |
+             | (there may be user data here)                           |
+             + - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+             |                                                         .
+             .                                                         .
+             . user data (may be 0 bytes long)                         .
+             .                                                         .
+             .                                                         |
+nextchunk -> + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+             | prev_size: not used by dlmalloc because "chunk" is      |
+             | allocated (may hold user data, to decrease wastage)     |
+             +---------------------------------------------------------+
+```
+
+Các `free chunk` được lưu trữ trong `circular doubly-linked lists` và trông giống như sau:
+
+```
+    chunk -> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+             | prev_size: may hold user data (indeed, since "chunk" is |
+             | free, the previous chunk is necessarily allocated)      |
+             +---------------------------------------------------------+
+             | size: size of the chunk (the number of bytes between    |
+             | "chunk" and "nextchunk") and 2 bits status information  |
+             +---------------------------------------------------------+
+             | fd: forward pointer to the next chunk in the circular   |
+             | doubly-linked list (not to the next _physical_ chunk)   |
+             +---------------------------------------------------------+
+             | bk: back pointer to the previous chunk in the circular  |
+             | doubly-linked list (not the previous _physical_ chunk)  |
+             +---------------------------------------------------------+
+             |                                                         .
+             .                                                         .
+             . unused space (may be 0 bytes long)                      .
+             .                                                         .
+             .                                                         |
+nextchunk -> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+             | prev_size: size of "chunk", in bytes (used by dlmalloc  |
+             | because this previous chunk is free)                    |
+             +---------------------------------------------------------+
+```
+
+Bạn hãy nhớ chúng và giờ chúng ta sẽ bắt đầu thử thách.
+
 Đây là bố cục của heap sau khi cấp phát cho ba con trỏ `a`, `b` và `c` rồi lấy input từ ba đối số của chương trình.
 
 ```
