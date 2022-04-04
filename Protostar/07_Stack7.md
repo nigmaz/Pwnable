@@ -108,7 +108,7 @@ Mapped address spaces:
 
 Đoạn địa chỉ từ `0xb0000000` đến `0xbfffffff` là vùng bị giới hạn - gần như tất cả các phân vùng của chương trình trừ những gì trong đoạn từ `0x8048000` đến `0x804a000` -> không thể sử dụng trực tiếp ret2libc như `STACK SIX` mà ta sẽ trả về một địa chỉ nào đó trên phân vùng không bị giới hạn rồi mới quay lại ret2libc.
 
-Ở đây mình chọn `.text` với địa chỉ của `gadget` `pop pop ret`.
+Ở đây mình chọn `.text` với địa chỉ của `gadget` _ `pop pop ret`.
 
 system(), exit(), "/bin/sh".
 
