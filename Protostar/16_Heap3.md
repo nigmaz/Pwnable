@@ -98,9 +98,9 @@ struct malloc_chunk {
 
 ---------------------------------------------------------------------------------------------
 
-[4.1] - Nếu `chunk` nằm ngay trước `chunk` được giải phóng không được sử dụng, nó sẽ bị xóa khỏi  `a doubly linked free list` của nó thông qua unlink () (nếu nó không phải là `last_remainder ') và được hợp nhất với `chunk` được giải phóng.
+[4.1] - Nếu `chunk` nằm ngay trước `chunk` được giải phóng không được sử dụng, nó sẽ bị xóa khỏi  `a doubly linked free list` của nó thông qua unlink () (nếu nó không phải là 'last_remainder') và được hợp nhất với `chunk` được giải phóng.
 
-[4.2] - Nếu `chunk` nằm ngay sau `chunk` được giải phóng không được sử dụng, nó sẽ bị xóa khỏi ` a doubly linked free list` thông qua unlink () (nếu nó không phải là `last_remainder ') và được hợp nhất với `chunk` được giải phóng.
+[4.2] - Nếu `chunk` nằm ngay sau `chunk` được giải phóng không được sử dụng, nó sẽ bị xóa khỏi `a doubly linked free list` thông qua unlink () (nếu nó không phải là 'last_remainder') và được hợp nhất với `chunk` được giải phóng.
 
 ---------------------------------------------------------------------------------------------
 
