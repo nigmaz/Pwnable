@@ -142,7 +142,7 @@ Quá trình trước và sau khi `unlink()` bạn có thể xem ảnh này để
 
 <img src="https://github.com/l1j9m4-0n1/Blog/blob/main/zOther/unlink.jpg">
 
-+) Vì vậy, nếu chúng ta có thể kiểm soát các giá trị của `P->bk` và `P->fk`, chúng ta có thể ghi dữ liệu tùy ý vào một vị trí tùy ý trong bộ nhớ (overwrite everywhere).
++) Vì vậy, nếu chúng ta có thể kiểm soát các giá trị của `P->bk` và `P->fd`, chúng ta có thể ghi dữ liệu tùy ý vào một vị trí tùy ý trong bộ nhớ (overwrite everywhere).
 
 Tiếp tục thực hiện chương trình, chúng ta thấy rằng cách bố trí heap như sau sau ba lần gọi `free()`.
 
