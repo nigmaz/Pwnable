@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 
 ## Solutions
 
-`FORMAT ONE` cho chúng ta thấy cách mà chúng ta có thể sử dụng chuỗi định dạng để thay đổi giá trị tại vị trí tùy ý trên bộ nhớ. Thử thách sẽ hoàn thành khi ta thay đổi được giá trị của biến toàn cục `target` != 0 vaf in ra `"you have modified the target :)"`.
+`FORMAT ONE` cho chúng ta thấy cách mà chúng ta có thể sử dụng chuỗi định dạng để thay đổi giá trị tại vị trí tùy ý trên bộ nhớ. Thử thách sẽ hoàn thành khi ta thay đổi được giá trị của biến toàn cục `target` != 0 và in ra `"you have modified the target :)"`.
 
 Đầu tiên ta đi tìm input của chúng ta được định dạng ở parameter thứ mấy bằng cách quét stack.
 
