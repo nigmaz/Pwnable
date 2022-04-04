@@ -67,7 +67,7 @@ Thực hiện quét stack ta có chuỗi đầu vào sẽ được định dạn
 Tôi sẽ không trình bày chi tiết cách tôi ghi từng byte, thay vào đó bạn có thể đọc từ cuốn sách tôi để ở `Documents`.
 
 ```
-                 0      1      2
+                        1      2
 hex     | \x44 | \x55 | \x02 | \x01 |
 decimal |  68  |  85  |  258 |  513 |
 Đã có   |  16  |  68  |  85  |  258 |
