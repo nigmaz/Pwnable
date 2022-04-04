@@ -154,7 +154,7 @@ Payload của chúng ta bây giờ là:
 
 `payload = "A" * 80 + addr_system + addr_exit + addr_shellcode`
 
-File exp.py.
+File exp.py
 
 ```
 import struct
