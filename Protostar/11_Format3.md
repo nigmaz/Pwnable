@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 
 Khá phức tạp, ta có `0x01025544 = 16930116` là một giá trị decimal thực sự lớn và nếu vẫn tiếp tục dùng cách ghi đè của `FORMAT TWO` thì ta sẽ không nhận được điều mình cần là `target == 0x01025544` vì số lượng ký tự ghi vào quá lớn.
 
-Thay vào đó ta sẽ ghi lần lượt 4 lần vào từng byte tăng dần bắt đầu từ địa chỉ của biến `target` và với các giá trị là `44` `55` `02` `01` `[little edian]`.
+Thay vào đó ta sẽ ghi lần lượt 4 lần vào từng byte tăng dần bắt đầu từ địa chỉ của biến `target` và với các giá trị là `44` `55` `02` `01` - đây là `[little edian]`.
 
 Địa chỉ `target = 0x80496f4`.
 
