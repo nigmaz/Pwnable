@@ -73,7 +73,7 @@ nextchunk -> + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
              +---------------------------------------------------------+
 ```
 
-Các `free chunk` được lưu trữ trong `circular doubly-linked lists` và trông giống như sau:
+Các `free chunks` được lưu trữ trong `circular doubly-linked lists` và trông giống như sau:
 
 ```
     chunk -> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
