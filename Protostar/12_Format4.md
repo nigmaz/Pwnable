@@ -59,7 +59,7 @@ AAAA %p %p %p %p %p %p
 AAAA 0x200 0xb7fd8420 0xbffffb04 0x414141c3 0x70252041 0x20702520
 ```
 
-Địa chỉ hàm `hello()`.
+Địa chỉ hàm `hello()` = 0x80484b4.
 
 ```
 root@protostar:/opt/protostar/bin# gdb -q ./format4
