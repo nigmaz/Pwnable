@@ -94,7 +94,7 @@ char *strdup(const char *src) {
 }
 ```
 
-Và trong những lần chạy thử sau khi `reset` rồi gọi đến `service` địa chỉ của `auth->auth` và `*service` trùng nhau.
+Và trong những lần chạy thử sau khi `reset` rồi gọi đến `service` địa chỉ của `service` nằm trên phần cấp phát động của `auth`.
 
 ```
 [ auth = (nil), service = (nil) ]
