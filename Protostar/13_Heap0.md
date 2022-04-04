@@ -59,18 +59,18 @@ Bộ cấp phát bộ nhớ được sử dụng trong Protostar là `glibc's ma
 
 ```
      low memory adddress
-  | |====================| 
+  | |====================|   <---- current chunk  
   | |     prev_size      |  |
   | |====================|  | HEAP
-  S |        size        |  | grow
-  T |====================|  | direction
-  A |  base-pointer|'''''|  |
-  C |==============|'''''|  |
-  K |''''''''''''''''''''|  |
-  | |'''''''buffer'''''''|  |
-  | |''''''''''''''''''''|  |
+  | |        size        |  | grow
+  H |====================|  | direction
+  E |      data user     |  |
+  A |====================|  |
+  P |''''''''''''''''''''|  |
+  | |====================|  | <---- next chunk
+  | |      prev_size     |  |
   | |====================|  |
-  | |                    |  |
+  | |       size         |  |
   | |....................|  v
       high memory address
 ```
