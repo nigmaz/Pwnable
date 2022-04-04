@@ -78,15 +78,15 @@ struct malloc_chunk {
 
 +) Việc triển khai `malloc` sử dụng 3 bit này làm giá trị cờ. Trích dẫn từ trang glibc Malloc Internals, ba cờ được định nghĩa như sau:
 
-	* A (0x04)
+* A (0x04)
 
 	Allocated Arena - `The main Arena` sử dụng `heap` từ ứng dụng. Các `Arena` khác sử dụng `heap` từ mmap'd. Để ánh xạ một `chunk` vào một `heap`, bạn cần biết trường hợp nào áp dụng. Nếu bit này là 0, `chunk` này đến từ `The main Arena` và `heap` chính. Nếu bit này là 1, `chunk` này đến từ bộ nhớ mmap'd và vị trí của heap có thể được tính toán từ địa chỉ của `chunk`.
 
-	* M (0x02)
+* M (0x02)
 
 	MMap'd chunk - `chunk` này được phân bổ bằng một lệnh gọi đến mmap và hoàn toàn không phải là một phần của heap.
 
-	* P (0x01)
+* P (0x01)
 
 	`Chunk` trước đó đang được sử dụng - nếu được đặt, `chunk` trước đó vẫn đang được chương trình sử dụng, và do đó trường `pres_size` không hợp lệ. Lưu ý - một số trường hợp đặc biệt, chẳng hạn như những `chunk` trong fastbins (xem bên dưới) sẽ có bộ bit này mặc dù đã được giải phóng(free()). Bit này thực sự có nghĩa là `chunk` trước đó không nên được coi là một ứng cử viên để liên kết lại - nó "đang được sử dụng" bởi chương trình hoặc một số lớp tối ưu hóa khác cho việc phân bổ sau này nằm trên mã ban đầu của malloc.
 
