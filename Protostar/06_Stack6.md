@@ -70,7 +70,7 @@ Giả sử ret = 0xbf777777
              0xbf000000 <-- luôn bằng 0xbf000000
 ```
 
-Đoạn code này có khả năng chặn mọi địa chỉ trả về mà ta cố ghi đè vào EIP nếu như địa chỉ đó nằm trong khoảng từ `0xbf000000` đến `0xbfffffff`.
+Đoạn code này có khả năng chặn mọi địa chỉ trả về mà ta cố ghi đè vào EIP (tất cả bị đưa về `0xbf000000`) nếu như địa chỉ đó nằm trong khoảng từ `0xbf000000` đến `0xbfffffff`.
 
 ```
 root@protostar:/opt/protostar/bin# gdb -q ./stack6
