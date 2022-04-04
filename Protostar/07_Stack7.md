@@ -44,7 +44,8 @@ int main(int argc, char **argv)
 
 ## Solutions
 
-`STACK SEVEN` 
+`STACK SEVEN` giới thiệu về cách chúng ta sử dụng segment .text khi mà địa chỉ bị giới hạn trả về không chỉ còn là stack. Chúng ta sẽ tìm hiểu về các ROPgadget và kỹ thuật khai thác ROP (Return-oriented programming).
+
 
 
 ## Documents
