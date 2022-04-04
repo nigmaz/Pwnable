@@ -96,11 +96,13 @@ struct malloc_chunk {
 
 +) Kỹ thuật `unlink ()` dựa trên một hành vi cụ thể của `free()`.
 
-```
+---------------------------------------------------------------------------------------------
+
 [4.1] - Nếu `chunk` nằm ngay trước `chunk` được giải phóng không được sử dụng, nó sẽ bị xóa khỏi  `a doubly linked free list` của nó thông qua unlink () (nếu nó không phải là `last_remainder ') và được hợp nhất với `chunk` được giải phóng.
 
 [4.2] - Nếu `chunk` nằm ngay sau `chunk` được giải phóng không được sử dụng, nó sẽ bị xóa khỏi ` a doubly linked free list` thông qua unlink () (nếu nó không phải là `last_remainder ') và được hợp nhất với `chunk` được giải phóng.
-```
+
+---------------------------------------------------------------------------------------------
 
 +) Việc `chunk` trước đó có được coi là chưa sử dụng hay không được xác định bởi `prev_size` trên `chunk` hiện tại có được đặt hay không.
 
