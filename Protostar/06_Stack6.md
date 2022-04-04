@@ -189,4 +189,4 @@ final2	format2  heap0	  heap3  net2  stack0  stack3  stack6
 
 <https://en.wikipedia.org/wiki/Endianness>
 
-
+<https://bufferoverflows.net/ret2libc-exploitation-example/>
