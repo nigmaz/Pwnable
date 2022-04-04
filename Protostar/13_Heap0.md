@@ -55,7 +55,25 @@ int main(int argc, char **argv)
 
 `HEAP ZERO` cho chúng ta thấy cách mà việc heap overflows gây ảnh hưởng tới các biến được cấp phát động và từ đó dẫn tới thay đổi luồng thực thi code.
 
-Bộ cấp phát bộ nhớ được sử dụng trong Protostar là `glibc's malloc`, dựa trên `Doug Lea's malloc` (hay gọi tắt là `dlmalloc`).
+Bộ cấp phát bộ nhớ được sử dụng trong Protostar là `glibc's malloc`, dựa trên `Doug Lea's malloc` (hay gọi tắt là `dlmalloc`). Bố cục của một biến khi được cấp phát động thông qua con trỏ.
+
+```
+     low memory adddress
+  | |====================| 
+  | |     prev_size      |  |
+  | |====================|  | HEAP
+  S |        size        |  | grow
+  T |====================|  | direction
+  A |  base-pointer|'''''|  |
+  C |==============|'''''|  |
+  K |''''''''''''''''''''|  |
+  | |'''''''buffer'''''''|  |
+  | |''''''''''''''''''''|  |
+  | |====================|  |
+  | |                    |  |
+  | |....................|  v
+      high memory address
+```
 
 Nhìn vào đoạn mã của chương trình sau
 
