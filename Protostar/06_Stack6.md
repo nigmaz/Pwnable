@@ -107,7 +107,7 @@ Mapped address spaces:
 (gdb)
 ```
 
-Đoan địa chỉ từ `0xbf000000` đến `0xbfffffff` là stack -> không thể ghi đè shellcode lên stack rồi return lại để thực thi shellcode như `STACK FIVE`.
+Đoạn địa chỉ từ `0xbf000000` đến `0xbfffffff` là stack -> không thể ghi đè shellcode lên stack rồi return lại để thực thi shellcode như `STACK FIVE`.
 
 Thử thách này để có thể thực thi được shell ta sẽ sử dụng phương pháp ret2libc.
 Đầu tiên là tìm lượng padding cần thiết để flow được vào EIP.
