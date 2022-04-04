@@ -36,7 +36,7 @@ Ta có cấu trúc của stack memory sẽ nhìn như này:
 ```
      high memory adddress
   | |====================| 
-  | |   name-parameter   |  ^
+  | |   name-parameter   |  |
   | |====================|  | STACK
   S |   return address   |  | grow
   T |====================|  | direction
@@ -46,7 +46,7 @@ Ta có cấu trúc của stack memory sẽ nhìn như này:
   | |'''''''buffer'''''''|  |
   | |''''''''''''''''''''|  |
   | |====================|  |
-  | |                    |  |
+  | |                    |  v
   | |....................|
       low memory address
 ```
