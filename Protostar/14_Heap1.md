@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 
 `HEAP ONE` cho chúng ta thấy ngoài việc thay đổi luồng thực thi, trong một số trường hợp đặc biệt việc khai báo cấu trúc các biến cho ta khả năng ghi đè dẫn tới chiếm được quyền điều khiển luồng thực thi. Thử thách hoàn thành khi chúng ta in được dòng chữ `"and we have a winner @ "`.
 
-Trong chương trình này, chúng ta thấy rằng hai `struct internet` `i1`, `i2` đã được cấp phát. Mỗi struct chứa một con trỏ `name` được cấp phát riêng. Điều này có nghĩa là `struct internet` được cấp phát trên heap sẽ chứa một con trỏ đến một phần khác của bộ nhớ trên heap có chứa bộ đệm char.
+Trong chương trình này, chúng ta thấy rằng hai `struct internet` `*i1`, `*i2` đã được cấp phát. Mỗi struct chứa một con trỏ `name` được cấp phát riêng. Điều này có nghĩa là `struct internet` được cấp phát trên heap sẽ chứa một con trỏ đến một phần khác của bộ nhớ trên heap có chứa bộ đệm char.
 
 Bộ nhớ Heap được cấp phát liên tục nên Heap được bố cục như sau:
 
