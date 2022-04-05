@@ -101,12 +101,23 @@ int main(int argc, char **argv, char **envp)
 
 ## Solutions
 
-`FINAL ONE` 
+`FINAL ONE` là khai thác `format string` và `remote`.
 
+File final1.py
+
+```
+
+```
+
+Khai thác
+
+```
+
+```
 
 ## Documents
 
-
+[Final1](https://www.youtube.com/watch?v=MBz5C9Wa6KM)
 
 
 
