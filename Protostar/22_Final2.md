@@ -92,12 +92,24 @@ int main(int argc, char **argv, char **envp)
 
 ## Solutions
 
-`FINAL TWO` 
+`FINAL TWO` là khai thác `heap` và `remote`.
+
+File final2.py
+
+```
+
+```
+
+Khai thác
+
+```
+
+```
 
 
 ## Documents
 
-
+[Final2](https://www.youtube.com/watch?v=2GVi8_9u5TY&list=PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN&index=38)
 
 
 
