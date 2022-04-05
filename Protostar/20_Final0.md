@@ -70,9 +70,7 @@ int main(int argc, char **argv, char **envp)
 
 ## Solutions
 
-`FINAL ZERO` là hướng dẫn khai thác stack overflow và viết mã khai thác chương trình đang chạy remote.
-
-Về cơ bản, chương trình yêu cầu chùng ta nhập một tên người dùng và sau đó trả lại nó ở dạng chữ hoa. Các ký tự `'\n'` và `'\r'` trong input chúng ta gửi đi sẽ dược thay thế bằng `NULL`, đây là một điều cần lưu ý vì bên dưới đoạn code `strlen()` và `strdup()` sẽ dừng tại `NULL` nếu như các ký tự trong chuỗi bị thay thế.
+`FINAL ZERO` là khai thác `stack overflow` và `remote`.
 
 File final0.py
 
