@@ -198,7 +198,7 @@ BK  |    ...    |            BK  |     b     |          BK  |     b     |
 
 Quá trình trước và sau khi `unlink()` bạn có thể xem ảnh này để rõ hơn 
 
-<img src="https://github.com/l1j9m4-0n1/Blog/blob/main/zOther/unlink.jpg">
+<h3 align="center"><img src="https://github.com/l1j9m4-0n1/Blog/blob/main/zOther/unlink.jpg"></h3>
 
 +) Vì vậy, nếu chúng ta có thể kiểm soát các giá trị của `P->bk` và `P->fd`, chúng ta có thể ghi dữ liệu tùy ý vào một vị trí tùy ý trong bộ nhớ (overwrite everywhere).
 
@@ -229,7 +229,7 @@ Các khối nhỏ được lưu trữ trong các thùng có kích thước cụ 
 
 +) Có một cách là nếu cung cấp một giá trị như `0xFFFFFFFC` (-4 dưới dạng số nguyên có dấu), bộ cấp phát sẽ không đặt `chunk` trong `fastbin` vì `0xFFFFFFFC` khi là một số nguyên không dấu là một giá trị lớn hơn nhiều so với 64. Do tràn số nguyên trong quá trình số học con trỏ, bộ cấp phát nghĩ rằng `chunk` trước đó thực sự bắt đầu ở 4 byte sau thời điểm bắt đầu của `chunk` hiện tại. [Here](http://phrack.org/issues/57/8.html) mục `[ 3.6.1.2 - Proof of concept ]`
 
-<img src="https://github.com/l1j9m4-0n1/Blog/blob/main/zOther/unlink1.png">
+<h3 align="center"><img src="https://github.com/l1j9m4-0n1/Blog/blob/main/zOther/unlink1.png"></h3>
 
 Cụ thể là sau khi check `previous chunk` là một `free chunk` thông qua `bit P`, trình quản lý phân bổ sẽ xác định địa chỉ của `previous chunk` của `current chunk` (chunk đang được tiến hành free) bằng cách lấy giá trị là địa chỉ của `current chunk` trừ đi giá trị tại member đầu tiên `(prev_size)` của current chunk đế có được địa chỉ chunk sẽ tiến hành `unlink()`.
 
