@@ -231,6 +231,11 @@ Các khối nhỏ được lưu trữ trong các thùng có kích thước cụ 
 
 <img src="https://github.com/l1j9m4-0n1/Blog/blob/main/zOther/unlink1.png">
 
+Cụ thể là sau khi check `previous chunk` là một `free chunk` thông qua `bit P`, trình quản lý phân bổ sẽ xác định địa chỉ của `previous chunk` của `current chunk` (chunk đnag được tiến hành free) bằng cách lấy giá trị là địa chỉ của `current chunk` trừ đi giá trị tại member đầu tiên `(prev_size)` của current chunk đế có được địa chỉ chunk sẽ tiến hành `unlink()`.
+
+=> Vì thế do trừ đi cho (-4) dẫn đến phân bổ cho rằng `previous chunk` thực sự bắt đầu ở 4 bytes sau thời điểm bắt đầu của `current chunk`. 
+
+### Tóm lại
 +) Tổng hợp những gì chúng ta đã học được cho đến nay, chúng ta nhận được thông tin đầu vào sau cho chương trình. Chúng tôi ghi đè `prev_size` và `size` bằng -4. `fd` và `bk` tương ứng là `\x42\x42\x42\x42` và `\x43\x43\x43\x43`.
 
 ```
