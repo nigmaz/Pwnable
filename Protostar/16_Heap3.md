@@ -54,7 +54,7 @@ Trước khi bắt đầu thử thách ta sẽ xem qua hai thứ.
              | by dlmalloc only if this previous chunk is free)        |
              +---------------------------------------------------------+
              | size: size of the chunk (the number of bytes between    |
-             | "chunk" and "nextchunk") and 2 bits status information  |
+             | "chunk" and "nextchunk") and 3 bits status information  |
       mem -> +---------------------------------------------------------+
              | fd: not used by dlmalloc because "chunk" is allocated   |
              | (user data therefore starts here)                       |
@@ -81,7 +81,7 @@ nextchunk -> + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
              | free, the previous chunk is necessarily allocated)      |
              +---------------------------------------------------------+
              | size: size of the chunk (the number of bytes between    |
-             | "chunk" and "nextchunk") and 2 bits status information  |
+             | "chunk" and "nextchunk") and 3 bits status information  |
              +---------------------------------------------------------+
              | fd: forward pointer to the next chunk in the circular   |
              | doubly-linked list (not to the next _physical_ chunk)   |
