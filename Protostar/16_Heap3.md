@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 
 Trước khi bắt đầu thử thách ta sẽ xem qua hai thứ.
 
-Một `chunk` được phân bổ do DougLea's Malloc quản lý trông giống như sau:
+* Một `chunk` được phân bổ do DougLea's Malloc quản lý trông giống như sau:
 
 ```
     chunk -> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -73,7 +73,7 @@ nextchunk -> + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
              +---------------------------------------------------------+
 ```
 
-Các `free chunks` được lưu trữ trong `circular doubly-linked lists` và trông giống như sau:
+* Các `free chunks` được lưu trữ trong `circular doubly-linked lists` và trông giống như sau:
 
 ```
     chunk -> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
