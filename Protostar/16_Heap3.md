@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 
 ## Solutions
 
-`HEAP THREE` muốn chúng ta tìm hiểu về `metadata heap` và cách chúng ta có thể khai thác nó để thực thi mã. Để vượt qua thử thách này bạn cần sử dụng kai thác 1 hành vi của `free` là `unlink()`.
+`HEAP THREE` muốn chúng ta tìm hiểu về `metadata heap` và cách chúng ta có thể khai thác nó để thực thi mã. Để vượt qua thử thách này bạn cần sử dụng kai thác 1 hành vi của `free()` là `unlink()`.
 
 Trước khi bắt đầu thử thách ta sẽ xem qua hai thứ.
 
