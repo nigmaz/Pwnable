@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 
 ## Solutions
 
-`STACK SIX` muốn chúng ta xem xét về cách vượt qua giới hạn khi mà địa chỉ trả về bị giới hạn. Cụ thể hơn là cách khai thác ret2libc.
+`STACK SIX` muốn chúng ta xem xét về cách vượt qua các kiểm tra của chương trình khi mà địa chỉ trả về bị giới hạn. Cụ thể hơn là cách khai thác ret2libc.
 
 Đoạn code sau:
 
