@@ -189,7 +189,7 @@ struct malloc_chunk {
 }
 ```
 
-P là `chunk` bạn muốn hủy liên kết ra khỏi `bins`, `BK` và `FD` là những con trỏ tạm thời. Về cơ bản, khi gọi `free()` một `chunk`, `unlink()` hàm thực hiện hai hành động:
+P là `chunk` bạn muốn hủy liên kết ra khỏi danh sách, `BK` và `FD` là những con trỏ tạm thời. Về cơ bản, khi gọi `free()` một `chunk`, `unlink()` hàm thực hiện hai hành động:
 
   1. Ghi giá trị của `P->bk` vào địa chỉ bộ nhớ được trỏ tới bởi `(P->fd) + 12`. Giá trị 12 là `offset` của phần tử `bk` của `P->fd`.
   2. Ghi giá trị của `P->fd` vào địa chỉ bộ nhớ được trỏ tới bởi `(P->bk) + 8`. Giá trị 8 là `offset` của phần tử `fd` của `P->bk`.
