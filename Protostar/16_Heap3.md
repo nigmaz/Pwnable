@@ -100,7 +100,7 @@ nextchunk -> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
              +---------------------------------------------------------+
 ```
 
-Bạn hãy nhớ chúng và giờ chúng ta sẽ bắt đầu thử thách.
+* Bạn hãy nhớ chúng và giờ chúng ta sẽ bắt đầu thử thách.
 
 `Heap` được phân bổ và quản lý khác nhau giữa các phiên bản `glibc`. Ta sẽ kiểm tra `glibc version` của `Lab Protostar`.
 
