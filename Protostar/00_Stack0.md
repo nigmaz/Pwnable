@@ -51,7 +51,7 @@ Ta có cấu trúc của stack memory sẽ nhìn như này:
       low memory address
 ```
 
-Biến `modified` được khai báo `volatile int` và gán giá trị bằng 1 sau đó có mảng `buffer` gồm 64 ký tự. `Buffer` lấy giá trị từ hàm nhập gets().
+Biến `modified` được khai báo `volatile int` và gán giá trị bằng 1 sau đó là khai báo mảng `buffer` gồm 64 ký tự. `Buffer` lấy giá trị từ hàm nhập gets().
 
 Đây là hướng dẫn về hàm gets của Linux `$ man gets`
 
