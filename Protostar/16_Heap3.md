@@ -201,14 +201,14 @@ Bạn có thể hình dung như sau.
 b ->=============                =============              =============<- a                    
     | prev_size |                | prev_size |              | prev_size |       
     |   size    |                |   size    |              |   size    |      
-FD  |     a     |            FD  |     a     |          FD  |    ...    |
-BK  |    ...    |            BK  |     b     |          BK  |     b     |
+fd  |     a     |            fd  |     a     |          fd  |    ...    |
+bk  |    ...    |            bk  |     b     |          bk  |     b     |
     |===========|                |===========|              |===========|
 ```
 
-* Lấy giá trị `b` điền vào vị trí `a + 12`.
+* Lấy giá trị `b` - (P->bk) điền vào vị trí `a + 12` - (FD->bk).
 
-* Lấy giá trị `a` điền vào vị trí `b + 8`.
+* Lấy giá trị `a` - (P->fd) điền vào vị trí `b + 8` - (BK->fd).
 
 Quá trình trước và sau khi `unlink()` bạn có thể xem ảnh này để rõ hơn 
 
