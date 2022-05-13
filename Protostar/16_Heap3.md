@@ -102,6 +102,20 @@ nextchunk -> +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 Bạn hãy nhớ chúng và giờ chúng ta sẽ bắt đầu thử thách.
 
+`Heap` được phân bổ và quản lý khác nhau giữa các phiên bản `glibc`. Ta sẽ kiểm tra `glibc version` của `Lab Protostar`.
+
+```
+root@protostar:/opt/protostar/bin# ldd --version
+ldd (Debian EGLIBC 2.11.2-10) 2.11.2
+Copyright (C) 2009 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Written by Roland McGrath and Ulrich Drepper.
+root@protostar:/opt/protostar/bin#
+```
+
+`Glibc version` là 2.11.2 => sẽ không có `tcache`.
+
 Đây là bố cục của heap sau khi cấp phát cho ba con trỏ `a`, `b` và `c` rồi lấy input thông qua `strcpy()` (có thể buffer overflow) từ ba đối số của chương trình.
 
 ```
@@ -301,7 +315,7 @@ that wasn't too bad now, was it? @ 1649095327
 ```
 
 ```
-Khai thác heap thực sự rất phức tạp và khó @@.
+Khai thác heap thực sự rất phức tạp và khó.
 ```
 
 ## Documents
