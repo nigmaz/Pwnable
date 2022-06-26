@@ -1,4 +1,4 @@
-XCTF - PWN Exercise - cgpwn2
+# XCTF - PWN Exercise - cgpwn2
 
 ```c
 #include<stdio.h>
