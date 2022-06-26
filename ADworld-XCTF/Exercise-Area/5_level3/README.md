@@ -37,20 +37,17 @@ Những bài sử dụng kỹ thuật `ret2libc` thường sẽ leak địa ch�
 
 Để lấy địa chỉ của hàm `system` của bài này, ta có thể sử dụng hàm `write()` để thực hiện tính toán offset. 
 
-   1. Đầu tiên sử dụng hàm write() để tính địa chỉ thực của hàm `write()` được chương trình lưu trong `GOT`. 
+   1. Đầu tiên sử dụng hàm write() để tính địa chỉ thực của hàm `write()` được chương trình lưu trong `GOT` (kiến thức liên quan đến liên kết động thư viện libc của file ELF). 
    
-   2. Sử dụng khoảng cách tương đối giữa các để tính địa chỉ thực của `system` và `"/bin/sh"`.
+   2. Sử dụng khoảng cách tương đối giữa các hàm để tính địa chỉ thực của `system` và `"/bin/sh"`.
 
 => Đối với cuộc tấn công đầu tiên, chúng ta sử dụng tràn ngăn xếp để làm rò rỉ địa chỉ thực của hàm write() trong bảng GOT, sau đó trừ đi phần bù trong libc để lấy địa chỉ cơ sở của libc. 
-=> Cuộc tấn công thứ hai sẽ quay lại functions `main`, vượt qua tràn ngăn xếp một lần nữa và sử dụng chức năng `system` tính toán được để `get shell` :p.
-
-Trong trường hợp này, trọng tải được sử dụng lần đầu tiên bao gồm:
 
 ```
 payload1 = 'A' * 0x88 + p32 (0xdeadbeef) + p32 (write_plt) + p32 (main_addr) + p32 (1) + p32 (write_got) + p32 (0xdeadbeef)
 ```
 
-Sử dụng cuộc tấn công đầu tiên, bạn có thể lấy được cơ sở của địa chỉ libc. Sau đó, thực hiện cuộc tấn công thứ hai. Trọng tải được sử dụng bao gồm:
+=> Cuộc tấn công thứ hai sẽ quay lại functions `main`, vượt qua tràn ngăn xếp một lần nữa và sử dụng chức năng `system` tính toán được để `get shell` :p.
 
 ```
 payload2 = 'A' * 0x88 + p32 (0xdeadbeef) + p32 (sys_addr) + p32 (0xdeadbeef) + p32 (bin_sh_addr)
