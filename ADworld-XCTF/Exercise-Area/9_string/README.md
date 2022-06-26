@@ -12,5 +12,5 @@ l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/9_string λ checksec string
     PIE:      No PIE (0x400000)
 ```
 
-Vì code bài này khá dài nên mình sẽ không để toàn bộ code decompiler ở đây mà sẽ đi sâu vào những functions có thể khái thác được mà mình thấy qua trình dịch ngược IDA64.
+Vì code bài này khá dài nên mình sẽ không để toàn bộ code decompiler ở đây mà sẽ đi sâu vào những functions có thể khai thác được mà mình thấy qua trình dịch ngược IDA64.
 
