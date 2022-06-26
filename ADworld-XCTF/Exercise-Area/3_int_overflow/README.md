@@ -85,7 +85,7 @@ l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/3_int_overflow λ checksec int_overf
     PIE:      No PIE (0x8048000)
 ```
 
-
+...
 
 Tiến hành viết file [exploit.py](exploit.py) và khai thác:
 
