@@ -152,7 +152,7 @@ unsigned __int64 sub_400BB9()
 ...
 ```
 
-Hàm thứ hai `sub_400BB9`, sau khi nhập `1` là giá trị của `v1` ta thấy `printf(&format, & format)` => chúng ta có thể sử dụng lỗ hổng của chuỗi định dạng. Chúng ta có thể nhập một địa chỉ tại `v2` ở trên, và sau đó thay đổi giá trị được lưu trữ trong địa chỉ này thông qua lỗ hổng chuỗi định dạng.
+Hàm thứ hai `sub_400BB9`, sau khi nhập `1` là giá trị của `v1` ta thấy `printf(format)` => chúng ta có thể sử dụng lỗ hổng kiểu chuỗi định dạng. Chúng ta có thể nhập một địa chỉ tại `v2` ở trên, và sau đó thay đổi giá trị được lưu trữ trong địa chỉ này thông qua lỗ hổng chuỗi định dạng đối với chuỗi kí tự `format`.
 
 ```c
 #include<stdio.h>
