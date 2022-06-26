@@ -58,11 +58,13 @@ payload2 = 'A' * 0x88 + p32 (0xdeadbeef) + p32 (sys_addr) + p32 (0xdeadbeef) + p
 
 Việc tính toán một số địa chỉ liên quan qua địa chỉ của hàm `write` leak được. Địa chỉ được tính như sau:
 
-|   Địa chỉ các hàm   |  Mảng  | Writeup                                                       |
-|   :-------------:   | :----: | :-----------------------------------------------------------: |
-|      libc_addr      | Crypto | [link](./Crypto/Crafted%20Cipher/write-up-crafted-cipher.txt) |
-|     system_addr     | Crypto | [link](./Crypto/Mmatrix/README.md)                            |
-|     bin_sh_addr     | Crypto | [link](./Crypto/b64%20thac%20tku%20zi)                        |
+|   Địa chỉ các hàm   |          Tính toán                                                     |
+|   :-------------:   | :--------------------------------------------------------------------: |
+|      libc_addr      | (địa chỉ write lưu tại GOT của write) - (offset của write so với libc) |
+|     system_addr     | libc_addr + (offset của system so với libc)                            |
+|     bin_sh_addr     | libc_addr + (offset của chuỗi "/bin/sh" so với libc)                   |
+
+
 
 Tiến hành viết file [exploit.py](exploit.py) và khai thác:
 
