@@ -35,7 +35,7 @@ Chương trình rất đơn giản, biến `buf` có 136 kí tự nhưng hàm `r
 
 Những bài sử dụng kỹ thuật `ret2libc` thường sẽ leak địa chỉ của libc bằng hàm `write` hoặc hàm `puts` rồi sau đó tính toán `offset` và địa chỉ của các hàm liên quan đến lấy shell tương tác như: `địa chỉ cơ sở của libc`, `system`, chuỗi `"/bin/sh"`,... do địa chỉ tương đối giữa các hàm trong libc là cố định (khoảng cách giữa các hàm).
 
-Để lấy địa chỉ của hàm hệ thống của bài này, ta có thể sử dụng hàm `write()` để thực hiện tính toán offset. 
+Để lấy địa chỉ của hàm `system` của bài này, ta có thể sử dụng hàm `write()` để thực hiện tính toán offset. 
 
    1. Đầu tiên sử dụng hàm write() để tính địa chỉ thực của hàm `write()` được chương trình lưu trong `GOT`. 
    
