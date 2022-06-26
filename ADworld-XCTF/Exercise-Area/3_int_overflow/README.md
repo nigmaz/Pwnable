@@ -91,7 +91,7 @@ Bây giờ ta có payload = "A" * 0x18 + p32(0x804868b) - `0x804868b là địa 
 
 Bài này xuất hiện lỗ hổng `int overflow` hay là tràn số nguyên.
 
-Biến v3 khai báo `unsigned __int8` nghĩa là có độ dài 8 bits. Các loại biến số nguyên khác nhau thì có phạm vi giá trị khác nhau, nếu giá trị chúng ta nhập vào nằm trong phạm vi hợp lý thì không sao, nhưng nếu giá trị nhập vào vượt quá phạm vi giá trị thì sẽ xảy ra hiện tượng tràn số nguyên. Máy tính sẽ đọc giá trị mặc định là phần sau của giá trị đầu vào. 
+Biến v3 khai báo `unsigned __int8` nghĩa là có độ dài 8 bit. Các loại biến số nguyên khác nhau thì có phạm vi giá trị khác nhau, nếu giá trị chúng ta nhập vào nằm trong phạm vi hợp lý thì không sao, nhưng nếu giá trị nhập vào vượt quá phạm vi giá trị thì sẽ xảy ra hiện tượng tràn số nguyên. Máy tính sẽ đọc giá trị mặc định là phần sau của giá trị đầu vào. 
 
 Ví dụ: giá trị của 8 bit int là `-255 ~ 255`. Nếu đầu vào 256, 255 tương ứng với nhị phân `1111 1111` và 256 tương ứng với nhị phân `1 0000 0000`. Khi máy tính gặp 256, nó sẽ mặc định ở phần sau 8 bit là `0000 0000` vì vậy 256 sẽ được công nhận giống 0 cũng có 8 bit sau là `0000 0000` và cứ như vậy 257 là 1, 258 là 2,...
 
