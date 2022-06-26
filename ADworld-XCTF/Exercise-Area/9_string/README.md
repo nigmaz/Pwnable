@@ -185,22 +185,25 @@ Hàm thứ ba `sub_400CA6(a1)`, đối số `a1` chính là con trỏ kiểu int
 Vấn đề là để thực thi nội dung trong if ta cần `*a1 == a1[1]` hay chính là `v4[0] = v4[1]`. Ta thấy hàm thứ hai `sub_400BB9` có lỗi `format-string`, từ đó có thể dùng lỗi fmt để làm v4[0] và v4[1] bằng nhau. 
 
 Bây giờ những việc cần làm.
-    +) Tìm xem biến `v2` của hàm `Hàm thứ hai sub_400BB9` là parameter thứ mấy.
-    +) Sử dụng lỗi `Format string` của biến `format` để ghi đè giá trị v4[0] và v4[1] bằng nhau.
-    +) Gửi shellcode x86_64 nữa là có thể lấy được flag. (shellcode execve(/bin/sh, 0, 0) x86_64 có rất nhiều trên mạng).
+
+   +) Tìm xem biến `v2` của hàm `Hàm thứ hai sub_400BB9` là parameter thứ mấy.
+
+   +) Sử dụng lỗi `Format string` của biến `format` để ghi đè giá trị v4[0] và v4[1] bằng nhau.
+
+   +) Gửi shellcode x86_64 nữa là có thể lấy được flag. (shellcode execve(/bin/sh, 0, 0) x86_64 có rất nhiều trên mạng).
     
 ```
 A voice heard in your mind
 'Give me an address'
-128
+76
 And, you wish is:
 AAAAAAAA-%p-%p-%p-%p-%p-%p-%p-%p-%p-%p
 Your wish is
-AAAAAAAA-0x7fba55b82723-(nil)-0x7fba55aa3077-0xd-(nil)-0x100603018-0x80-0x4141414141414141-0x252d70252d70252d-0x2d70252d70252d70I hear it, I hear it....
+AAAAAAAA-0x7fba55b82723-(nil)-0x7fba55aa3077-0xd-(nil)-0x100603018-0x4c-0x4141414141414141-0x252d70252d70252d-0x2d70252d70252d70I hear it, I hear it....
 Ahu!!!!!!!!!!!!!!!!A Dragon has appeared!!
 ```
 
-0x80 = 128, v2 nằm ở parameter thứ 7 trên stack. Bây giờ khi nhập v2 ta sẽ nhập địa chỉ được in ra ở secret[0] - địa chỉ của v4[0], sau đó nhập chuỗi `format` là `%85c%7$n` với 85 là giá trị của `v4[1]`.
+0x4c = 76, v2 nằm ở parameter thứ 7 trên stack. Bây giờ khi nhập v2 ta sẽ nhập địa chỉ được in ra ở secret[0] - địa chỉ của v4[0], sau đó nhập chuỗi `format` là `%85c%7$n` với 85 là giá trị của `v4[1]`.
 
 Tiến hành viết file [exploit.py](exploit.py) và khai thác:
 
