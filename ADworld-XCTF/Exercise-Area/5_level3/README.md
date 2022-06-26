@@ -61,7 +61,7 @@ Việc tính toán một số địa chỉ liên quan qua địa chỉ của hà
 |     system_addr     | libc_addr + (offset của system so với libc)                            |
 |     bin_sh_addr     | libc_addr + (offset của chuỗi "/bin/sh" so với libc)                   |
 
-###NOTE:
+### NOTE:
       
       +) (địa chỉ write lưu tại GOT của write) - leak được.
       
