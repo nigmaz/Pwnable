@@ -61,7 +61,17 @@ Việc tính toán một số địa chỉ liên quan qua địa chỉ của hà
 |     system_addr     | libc_addr + (offset của system so với libc)                            |
 |     bin_sh_addr     | libc_addr + (offset của chuỗi "/bin/sh" so với libc)                   |
 
-
+###NOTE:
+      
+      +) (địa chỉ write lưu tại GOT của write) - leak được.
+      
+      +) (offset của write so với libc) - tính toán thông qua libc được đề cho.
+      
+      +) (offset của write so với libc) - tính toán thông qua libc được đề cho.
+      
+      +) (offset của write so với libc) - tính toán thông qua libc được đề cho.
+      
+Phần này mình sẽ trình bày câu lệnh tròng file `exploit.py`.
 
 Tiến hành viết file [exploit.py](exploit.py) và khai thác:
 
