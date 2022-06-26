@@ -1,4 +1,4 @@
-# Level 0
+# XCTF - PWN Exercise - level0
 
 ```c
 #include<stdio.h>
@@ -40,7 +40,7 @@ Trong các hàm của chương trình có sẵn hàm `callsystem` có thể th�
 
  +) Địa chỉ của `buf` nằm ở `[rbp-80h]` cộng thêm 0x8 ghi đè `rbp` nữa là đến địa chỉ `return address` => offset = 0x80 + 0x8 = 0x88. 
 
- +) Tìm địa chỉ `callsystem` qua `gdb`.
+ +) Tìm địa chỉ `callsystem` qua `gdb` [NOTE]: File x86_64 thay vì nhảy thẳng vào đầu hàm ta sẽ dịch địa chỉ lên 1 hoặc 2 `instructions ASM` để có thể lấy được `shell`, bài này ta sẽ chọn địa chỉ `0x0000000000400597`.
 
 ```
 l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/8_level0 λ gdb -q ./level0
@@ -50,6 +50,16 @@ Reading symbols from ./level0...
 (No debugging symbols found in ./level0)
 pwndbg> p callsystem
 $1 = {<text variable, no debug info>} 0x400596 <callsystem>
+pwndbg> disass callsystem
+Dump of assembler code for function callsystem:
+   0x0000000000400596 <+0>:	push   rbp
+   0x0000000000400597 <+1>:	mov    rbp,rsp
+   0x000000000040059a <+4>:	mov    edi,0x400684
+   0x000000000040059f <+9>:	call   0x400460 <system@plt>
+   0x00000000004005a4 <+14>:	pop    rbp
+   0x00000000004005a5 <+15>:	ret    
+End of assembler dump.
+pwndbg> 
 ```
 
 Tiến hành viết file [exploit.py](exploit.py) và khai thác:
