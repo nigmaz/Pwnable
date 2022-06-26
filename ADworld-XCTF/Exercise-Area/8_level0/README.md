@@ -38,9 +38,9 @@ l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/8_level0 λ checksec level0
 
 Trong các hàm của chương trình có sẵn hàm `callsystem` có thể thực thi lấy shell tương tác với server, bây giờ ta cần đi tìm `offset` và địa chỉ hàm `callsystem`.
 
- +) Địa chỉ của `buf` nằm ở `[rbp-80h]` cộng thêm 0x8 ghi đè `rbp` nữa là đến địa chỉ `return address` => offset = 0x80 + 0x8 = 0x88. 
+   +) Địa chỉ của `buf` nằm ở `[rbp-80h]` cộng thêm 0x8 ghi đè `rbp` nữa là đến địa chỉ `return address` => offset = 0x80 + 0x8 = 0x88. 
 
- +) Tìm địa chỉ `callsystem` qua `gdb` [NOTE]: File x86_64 thay vì nhảy thẳng vào đầu hàm ta sẽ dịch địa chỉ lên 1 hoặc 2 `instructions ASM` để có thể lấy được `shell`, bài này ta sẽ chọn địa chỉ `0x0000000000400597`.
+   +) Tìm địa chỉ `callsystem` qua `gdb` [NOTE]: File x86_64 thay vì nhảy thẳng vào đầu hàm ta sẽ dịch địa chỉ lên 1 hoặc 2 `instructions ASM` để có thể lấy được `shell`, bài này ta sẽ chọn địa chỉ `0x0000000000400597`.
 
 ```
 l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/8_level0 λ gdb -q ./level0
