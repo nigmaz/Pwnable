@@ -68,7 +68,7 @@ l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/4_cgpwn2 λ checksec cgpwn2
     PIE:      No PIE (0x8048000)
 ```
 
-Đừng để ý vào đoạn đầu của code được decompile từ IDA vì mình cũng không hiểu nó viết gì :(. Cuối hàm `hello()` ta thấy chương trình nhập vào chuỗi biến toàn cục `name` tối đa 50 kí tự rồi sau đó nhập chuỗi vào `s` với offset so với return address là 0x26 + 0x4 = 0x2a bằng hàm `gets` => có thể dùng stack buffer overflow.
+Đừng để ý vào đoạn đầu của code được decompile từ IDA vì mình cũng không hiểu nó viết gì :(. Cuối hàm `hello()` ta thấy chương trình nhập vào chuỗi biến toàn cục `name` tối đa 50 kí tự rồi sau đó nhập chuỗi vào `s` với offset so với return address là 0x26 + 0x4 = 0x2a bằng hàm `gets` và không có `Canary` => có thể dùng stack buffer overflow.
 
 Ý tưởng là ta sẽ ghi đè địa chỉ trả về bằng địa chỉ plt của `system` trong hàm `pwn()` sau đó truyền đối số là chuỗi `"/bin/sh"` mà ta sẽ nhập vào ở biến toàn cục `name` trong lần nhập đầu tiên.
 
