@@ -44,7 +44,7 @@ __int64 __fastcall main(int a1, char **a2, char **a3)
 }
 ```
 
-Chúng ta quan tâm tới con trỏ v4 được cấp phát động, `v4 = 68` và `v4[1] = 85` và tương ứng với `secret[0]` và `secret[1]` được in ra là địa chỉ của `v4` và `v4[0]`. Tiếp theo là hàm `sub_400D72` với đối số là v4.
+Chúng ta quan tâm tới con trỏ v4 được cấp phát động, `v4 = 68` và `v4[1] = 85` và tương ứng với `secret[0]` và `secret[1]` được in ra là địa chỉ của `v4[0]` và `v4[1]`. Tiếp theo là hàm `sub_400D72` với đối số là v4.
 
 ```c
 #include<stdio.h>
