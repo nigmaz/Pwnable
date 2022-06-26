@@ -85,7 +85,19 @@ l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/3_int_overflow λ checksec int_overf
     PIE:      No PIE (0x8048000)
 ```
 
-...
+Xem qua tất cả các hàm chúng ta thấy có hàm `what_is_this()` thực thi đọc flag mà không có hàm nào gọi đến nó cả nên mục tiêu là ghi đè địa chỉ trả về của một hàm nào đó bằng địa chỉ của hàm `what_is_this()` (vì không có `Canary` nên ý tưởng ban đầu cơ bản là như vậy). Hàm `login()` cơ bản là nhập vào username và passwd sau đó passwd là đối số cho hàm `check_passwd(buf)`. Vấn đề nằm ở đây, vì vị trí của `username` và `passwd` trên stack được cấp phát khá lớn nên không thể cố nhập tràn rồi ghi đề return address nhưng ở hàm `check_passwd(buf)`, v3 là độ dài của `passwd` và nếu v3 thỏa mãn `v3 <= 3u || v3 > 8u` thì chuỗi `passwd` sẽ được coppy sang biến `dest[11]` nằm ở [ebp-14h] => có thể stack buffer overflow rồi ghi đè return address của hàm `check_passwd(buf)` do độ dài của buf[512] chính là `passwd`.
+
+Bây giờ ta có payload = "A" * 0x18 + p32(0x804868b) - `0x804868b là địa chỉ của check_passwd(buf)` có độ dài là 28 > 8. Như vậy là không thỏa mãn check_passwd.
+
+Bài này xuất hiện lỗ hổng `int overflow` hay là tràn số nguyên.
+
+Biến v3 khai báo `unsigned __int8` nghĩa là có độ dài 8 bits. Các loại biến số nguyên khác nhau thì có phạm vi giá trị khác nhau, nếu giá trị chúng ta nhập vào nằm trong phạm vi hợp lý thì không sao, nhưng nếu giá trị nhập vào vượt quá phạm vi giá trị thì sẽ xảy ra hiện tượng tràn số nguyên. Máy tính sẽ đọc giá trị mặc định là phần sau của giá trị đầu vào. 
+
+Ví dụ: giá trị của 8 bit int là `-255 ~ 255`. Nếu đầu vào 256, 255 tương ứng với nhị phân `1111 1111` và 256 tương ứng với nhị phân `1 0000 0000`. Khi máy tính gặp 256, nó sẽ mặc định ở phần sau, `0000 0000` vì vậy 256 sẽ được công nhận giống 0 và cứ như vậy 257 là 1, 258 là 2,...
+
+Vậy như bài trên ta thấy giá trị `v3` thỏa mãn là `3 < v3 <= 8` tương ứng với `259 = 256 + 3 < v3 <= 256 + 8 = 264` (ở đây 256 được máy tính hiểu là số 0 do tràn số nguyên). 
+
+Ta chọn v3 = 260, khi đó payload sẽ là `payload = "A" * 0x18 + p32(0x804868b) + "A" * 232`.
 
 Tiến hành viết file [exploit.py](exploit.py) và khai thác:
 
