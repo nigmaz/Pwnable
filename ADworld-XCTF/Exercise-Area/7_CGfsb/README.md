@@ -53,7 +53,7 @@ l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/7_CGfsb λ checksec CGfsb
     PIE:      No PIE (0x8048000)
 ```
 
-Rất dễ để nhận ra có lỗi `format string` trên biến s và mục tiêu của chúng ta là làm giá trị của biến toàn cục `pwnme` = 8.
+Rất dễ để nhận ra có lỗi `format string` trên biến `s` và mục tiêu của chúng ta là làm giá trị của biến toàn cục `pwnme` = 8.
 
   +) Tìm xem chuỗi `s` bắt đầu từ parameter thứ mấy trên stack.
 
