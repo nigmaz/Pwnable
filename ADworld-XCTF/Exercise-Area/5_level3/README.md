@@ -71,7 +71,7 @@ Việc tính toán một số địa chỉ liên quan qua địa chỉ của hà
       
       +) (offset của write so với libc) - tính toán thông qua libc được đề cho.
       
-Phần này mình sẽ trình bày câu lệnh tròng file `exploit.py`.
+Phần này mình sẽ trình bày câu lệnh bằng comment code trong file `exploit.py`.
 
 Tiến hành viết file [exploit.py](exploit.py) và khai thác:
 
