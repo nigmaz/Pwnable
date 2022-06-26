@@ -1,5 +1,16 @@
 # XCTF - PWN Exercise - string
 
-```c
+Kiếm tra các flag secure trước.
 
 ```
+l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/9_string λ checksec string 
+[*] '/home/l1j9m4/0_PWNable/ADworld_XCTF/Exersice/9_string/string'
+    Arch:     amd64-64-little
+    RELRO:    Full RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+```
+
+Vì code bài này khá dài nên mình sẽ không để toàn bộ code decompiler mà sẽ đi sâu vào nhưng functions có thể khái thác mà mình thấy được qua IDA64.
+
