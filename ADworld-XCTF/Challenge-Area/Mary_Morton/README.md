@@ -1,4 +1,4 @@
-# XCTF - PWN Challenge - Mary_morton
+# XCTF - PWN Challenge - Mary_Morton
 
 >Tiến hành viết file [exploit.py](exploit.py) và khai thác:
 
