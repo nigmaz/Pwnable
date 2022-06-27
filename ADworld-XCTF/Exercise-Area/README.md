@@ -2,6 +2,6 @@
 
 Đây là phần bắt đầu thử thách PWN của XCTF, nó khá đơn giản!!! 
 
->Chứa writeup chi tiết cho người mới bắt đầu!!!
+>Tôi viết writeup chi tiết cho người mới bắt đầu!!!
 
 ---------------------------------------------------------
