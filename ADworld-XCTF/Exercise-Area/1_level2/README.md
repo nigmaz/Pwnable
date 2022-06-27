@@ -31,7 +31,7 @@ l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/1_level2 λ checksec level2
     PIE:      No PIE (0x8048000)
 ```
 
-Hàm `read()` cho nhập 0x100 = 256 mà buf[136] nên có thể buffer overflow, không có hàm giúp đọc flag hay thực thi shellcode. Ý tưởng là do hàm `system()` được gọi đến nên có `system@plt` nên chỉ cần đi đè địa chỉ trả về bằng địa chỉ của `system@plt` là có thể thực thi shell. Vấn đề là ta còn thiếu chuỗi `/bin/sh` làm đối số.
+Hàm `read()` cho nhập 0x100 = 256 mà buf[136] nên có thể buffer overflow, không có hàm giúp đọc flag hay thực thi shellcode. Ý tưởng là do hàm `system()` được gọi đến nên có `system@plt` vì vậy chỉ cần đi đè địa chỉ trả về bằng địa chỉ của `system@plt` là có thể thực thi shell. Vấn đề là ta còn thiếu chuỗi `/bin/sh` làm đối số.
 
 ```
 l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/1_level2 λ strings -a -tx level2 | grep /bin/sh
