@@ -34,7 +34,7 @@ l1j9m4 in ~/0_PWNable/ADworld_XCTF/Exersice/0_hello_pwn λ checksec hello_pwn
     PIE:      No PIE (0x400000)
 ```
 
-...
+Chương trình sẽ nhảy đến hàm đọc flag khi biến `dword_60106C` == 0x6E756161, hàm `read()` đọc giá trị cho biến bắt đầu từ `&unk_601068` nằm dưới `dword_60106C` 4 giá trị => ghi đè 4 giá trị junk sau đó là giá trị ta muốn ghi đè vào biến `dword_60106C` khi đó sẽ thỏa mãn điều kiện và nhảy đến hàm đọc flag.
 
 Tiến hành viết file [exploit.py](exploit.py) và khai thác:
 
