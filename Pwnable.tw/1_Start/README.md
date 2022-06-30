@@ -76,7 +76,9 @@ Lệnh ngắt 0x80 thứ hai, eax = 3, chương trình gọi lệnh `sys_read()`
    0x80480a1 <_exit+4>: int    0x80
 ```
 
-Tăng giá trị esp lên 20 - nơi mà ở đầu hàm `_start` đã lưu trữ địa chỉ của hàm `_exit` trên stack và return để kết thúc chương trình.
+Tăng giá trị esp lên 20 - nơi mà ở đầu hàm `_start` đã lưu trữ địa chỉ của hàm `_exit` trên stack và return vể hàm `_exit` để kết thúc chương trình.
+
+>Ta dễ dàng thấy được chương trình cho đọc vào đến 60 kí tự và lưu chùng trên stack, trong khi sau đó chỉ tăng esp lên 20 và return về giá trị được lưu tại `esp + 20` => Xảy ra lỗi Buffer Overflow. 
 
 # 2) Idea
 
