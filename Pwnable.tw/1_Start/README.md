@@ -94,7 +94,7 @@ Thường những bài mà khi check secure flag `NX: NX disabled` và không c�
 
 ![layoutStack1.png](images/layoutStack1.png)
 
-Nếu ta tạo payload điều khiển chương trình return về `0x08048087` - địa chỉ của câu lệnh `mov ecx,esp` đưa địa chỉ của chuỗi cần in để thực hiện `syscall write()`, chương trình sau khi return về sẽ thực hiện `syscall write()` thêm lần nữa, in ra 20 bytes trên stack. Vì 4 bytes đầu tiên trên stack lúc này chính là esp ta đã leak được địa chỉ esp. Chương trình sẽ tiếp tục với một lệnh `syscall read()` thứ hai, ta sẽ gửi payload thứ hai bao gồm "A"*0x14 + (giá trị leak được chính là nơi ta ghi shellcode = esp+20) + shellcode, lúc này chương trình sẽ return về đúng shellcode mà ta cần.
+Nếu ta tạo payload điều khiển chương trình return về `0x08048087` - địa chỉ của câu lệnh `mov ecx,esp` đưa địa chỉ của chuỗi cần in để thực hiện `syscall write()`, sau khi return về chương trình sẽ thực hiện `syscall write()` lần thứ hai, in ra 20 bytes trên stack. Vì 4 bytes đầu tiên trên stack lúc này chính là esp nên ta sẽ leak được địa chỉ esp. Chương trình sẽ tiếp tục với một lệnh `syscall read()` thứ hai, ta sẽ gửi payload thứ hai bao gồm "A"*0x14 + (giá trị leak được chính là nơi ta ghi shellcode = esp+20) + shellcode, lúc này chương trình sẽ return về đúng shellcode mà ta cần.
 
 
 
