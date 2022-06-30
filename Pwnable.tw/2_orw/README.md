@@ -12,77 +12,9 @@ Only `open` `read` `write` syscall are allowed to use.
 
 ![checksec.png](images/checksec.png)
 
-Chương trình 32-bit được viết hoàn toàn bằng code nAsm và không bị mất `label` các chức năng của chương trình (not stripped).
+Chương trình khá đơn giản, nó yêu cầu một chuỗi đầu vào và cuối hàm main thì gọi tới con trỏ có giá trị là địa chỉ của chuỗi mà ta nhập vào. 
 
-```
-l1j9m4 in ~/0_PWNable_/Pwnable.tw/1_Start λ gdb -q ./start  
-pwndbg: loaded 198 commands. Type pwndbg [filter] for a list.
-pwndbg: created $rebase, $ida gdb functions (can be used with print/break)
-Reading symbols from ./start...
-(No debugging symbols found in ./start)
-pwndbg> info func
-All defined functions:
 
-Non-debugging symbols:
-0x08048060  _start
-0x0804809d  _exit
-0x080490a3  __bss_start
-0x080490a3  _edata
-0x080490a4  _end
-pwndbg> 
-```
-
-Vì vậy ta tiến hành phân tích và tìm lỗi từ mã nguồn của chương trình bằng gdb.
-
-```asm
-   0x8048060 <_start>:    push   esp
-   0x8048061 <_start+1>:  push   0x804809d
-   0x8048066 <_start+6>:  xor    eax,eax
-   0x8048068 <_start+8>:  xor    ebx,ebx
-   0x804806a <_start+10>: xor    ecx,ecx
-   0x804806c <_start+12>: xor    edx,edx
-```
-
-Bắt đầu từ hàm `_start`, chương trình `"push esp"` - đẩy giá trị esp vào stack, sau đó `"push 0x804809d"` - đẩy địa chỉ hàm `_exit` vào stack để kết thúc chương trình khi gọi return và khởi tạo giá trị cho các thanh ghi = 0 (xor eax, eax nghĩa là eax = 0).
-
-```asm
-   0x804806e <_start+14>: push   0x3a465443   ; CTF:
-   0x8048073 <_start+19>: push   0x20656874   ; the
-   0x8048078 <_start+24>: push   0x20747261   ; art 
-   0x804807d <_start+29>: push   0x74732073   ; s st
-   0x8048082 <_start+34>: push   0x2774654c   ; Let'
-   
-   0x8048087 <_start+39>: mov    ecx,esp
-   0x8048089 <_start+41>: mov    dl,0x14
-   0x804808b <_start+43>: mov    bl,0x1
-   0x804808d <_start+45>: mov    al,0x4
-   0x804808f <_start+47>: int    0x80
-```
-
-Tiếp theo là thực hiện đưa dòng chữ `"Let's start the CTF:"` lên stack và chương trình gọi lệnh `sys_write()` dùng ngắt 0x80 đầu tiên để gọi các lệnh hệ thống `Linux Syscall` với các đối số là giá trị yêu cầu trên các thanh ghi eax = 4, để print vào stdout (ebx = 1), 20 kí tự (edx = 0x14) tại địa chỉ esp (ecx = esp), mục đích là in dòng "Let's start the CTF:" ra màn hình.
-
-```asm
-   0x8048091 <_start+49>: xor    ebx,ebx
-   0x8048093 <_start+51>: mov    dl,0x3c
-   0x8048095 <_start+53>: mov    al,0x3
-   0x8048097 <_start+55>: int    0x80
-```
-
-Lệnh ngắt 0x80 thứ hai, eax = 3, chương trình gọi lệnh `sys_read()` đọc tối đa 60 kí tự (edx = 0x3c) từ stdin (ebx = 0), lưu vào stack tại vị trí esp (ecx = esp).
-
-```asm
-   0x8048099 <_start+57>: add    esp,0x14
-   0x804809c <_start+60>: ret    
-   
-   0x804809d <_exit>:   pop    esp
-   0x804809e <_exit+1>: xor    eax,eax
-   0x80480a0 <_exit+3>: inc    eax
-   0x80480a1 <_exit+4>: int    0x80
-```
-
-Tăng giá trị esp lên 20 - nơi mà ở đầu hàm `_start` đã lưu trữ địa chỉ của hàm `_exit` trên stack và return vể hàm `_exit` để kết thúc chương trình.
-
->Ta dễ dàng thấy được chương trình cho đọc vào đến 60 kí tự và lưu chúng trên stack, trong khi sau đó chỉ tăng esp lên 20 và return về giá trị được lưu tại `esp + 20` => Xảy ra lỗi Buffer Overflow. 
 
 # 2) Idea
 
