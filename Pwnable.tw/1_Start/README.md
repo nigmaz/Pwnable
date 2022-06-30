@@ -104,6 +104,10 @@ Layout stack sau khi ta ghi đè return address bằng địa chỉ câu lệnh 
 
 Lần nhập thứ hai ta ghi đè địa chỉ trả về là địa chỉ leak được sau đó chính là shellcode, gửi payload thứ hai: payload = "A"*0x14 + (esp+20) + shellcode, lúc này chương trình sẽ return về đúng shellcode mà ta cần.
 
-# 4) Source code
+# 4) Source code and get Flag
+
+Tiến hành viết file [exploit.py](exploit.py) và khai thác:
+
+![flag.png](images/flag.png)
 
 ------------------------------------------------------
