@@ -82,6 +82,8 @@ Tăng giá trị esp lên 20 - nơi mà ở đầu hàm `_start` đã lưu trữ
 
 # 2) Idea
 
+
+
 # 3) Exploit
 
 # 4) Source code
