@@ -90,7 +90,11 @@ Thường những bài mà khi check secure flag `NX: NX disabled` và không c�
 
 # 3) Exploit
 
-Để giải quyết vấn đề thứ hai, ta để ý đầu hàm `_start` là `push esp` rồi mới đến đẩy địa chỉ của hàm `_exit` lên stack. 
+Để giải quyết vấn đề thứ hai, ta để ý đầu hàm `_start` là `push esp` rồi mới đến đẩy địa chỉ của hàm `_exit` lên stack. Khi đó bố cục của stack trước khi nhận input sẽ như sau. 
+
+![layoutStack1.png](images/layoutStack1.png)
+
+
 
 # 4) Source code
 
