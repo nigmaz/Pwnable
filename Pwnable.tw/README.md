@@ -8,4 +8,4 @@
 
 |    Số thứ tự    |  Thử thách  | Writeup                                                       |
 | :-------------: | :---------: | :-----------------------------------------------------------: |
-|       01        |    Start    | [link](./Crypto/Crafted%20Cipher/write-up-crafted-cipher.txt) |
+|       01        |    Start    | [Start](./1_Start)                                            |
