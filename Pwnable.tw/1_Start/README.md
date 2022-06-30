@@ -102,7 +102,7 @@ Layout stack sau khi ta ghi đè return address bằng địa chỉ câu lệnh 
 
 ![layoutStack2.png](images/layoutStack2.png)
 
-Lần nhập thứ hai ta ghi đè địa chỉ trả về là địa chỉ leak được sau đó chính là shellcode. 
+Lần nhập thứ hai ta ghi đè địa chỉ trả về là địa chỉ leak được sau đó chính là shellcode, gửi payload thứ hai: payload = "A"*0x14 + (esp+20) + shellcode, lúc này chương trình sẽ return về đúng shellcode mà ta cần.
 
 # 4) Source code
 
