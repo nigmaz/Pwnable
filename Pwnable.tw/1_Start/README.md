@@ -1,6 +1,8 @@
 # pwnable.tw - Start
 
-nc chall.pwnable.tw 10000
+Just a start.
+
+`nc chall.pwnable.tw 10000`
 
 # 1) Analysis and find Bug
 
