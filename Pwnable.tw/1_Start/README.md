@@ -66,6 +66,18 @@ Tiếp theo là thực hiện đưa dòng chữ `"Let's start the CTF:"` lên st
 
 Lệnh ngắt 0x80 thứ hai, eax = 3, chương trình gọi lệnh `sys_read()` đọc tối đa 60 kí tự (edx = 0x3c) từ stdin (ebx = 0), lưu vào stack tại vị trí esp (ecx = esp).
 
+```asm
+   0x8048099 <_start+57>: add    esp,0x14
+   0x804809c <_start+60>: ret    
+   
+   0x804809d <_exit>:   pop    esp
+   0x804809e <_exit+1>: xor    eax,eax
+   0x80480a0 <_exit+3>: inc    eax
+   0x80480a1 <_exit+4>: int    0x80
+```
+
+Tăng giá trị esp lên 20 - nơi mà ở đầu hàm `_start` đã lưu trữ địa chỉ của hàm `_exit` trên stack và return để kết thúc chương trình.
+
 # 2) Idea
 
 # 3) Exploit
