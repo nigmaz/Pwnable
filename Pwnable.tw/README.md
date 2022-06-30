@@ -5,5 +5,7 @@
 #### Link pwnable.tw profile: [https://pwnable.tw/user/30002](https://pwnable.tw/user/30002)
 
 ## List challenge solved
-  1) Start
-  2) orw
+
+|    Số thứ tự    |  Thử thách  | Writeup                                                       |
+| :-------------: | :---------: | :-----------------------------------------------------------: |
+|       01        |    Start    | [link](./Crypto/Crafted%20Cipher/write-up-crafted-cipher.txt) |
