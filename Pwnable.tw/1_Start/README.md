@@ -39,7 +39,7 @@ Vì vậy ta tiến hành phân tích và tìm lỗi từ mã nguồn của chư
    0x804806c <_start+12>: xor    edx,edx
 ```
 
-Bắt đầu từ hàm `_start`, chương trình `push esp` đẩy giá trị esp vào stack sau đó `push 0x804809d` đẩy địa chỉ hàm `_exit` vào stack để kết thúc chương trình khi gọi return và khởi tạo giá trị cho các thanh ghi = 0 (xor eax, eax nghĩa là eax = 0).
+Bắt đầu từ hàm `_start`, chương trình `"push esp"` - đẩy giá trị esp vào stack, sau đó `"push 0x804809d"` - đẩy địa chỉ hàm `_exit` vào stack để kết thúc chương trình khi gọi return và khởi tạo giá trị cho các thanh ghi = 0 (xor eax, eax nghĩa là eax = 0).
 
 ```asm
    0x804806e <_start+14>: push   0x3a465443   ; CTF:
