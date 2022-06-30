@@ -96,7 +96,13 @@ Thường những bài mà khi check secure flag `NX: NX disabled` và không c�
 
 Nếu ta tạo payload điều khiển chương trình return về `0x08048087` - địa chỉ của câu lệnh `mov ecx,esp` đưa địa chỉ của chuỗi cần in để thực hiện `syscall write()`, sau khi return về chương trình sẽ thực hiện `syscall write()` lần thứ hai, in ra 20 bytes trên stack. Vì 4 bytes đầu tiên trên stack lúc này chính là esp nên ta sẽ leak được địa chỉ esp. Chương trình sẽ tiếp tục với một lệnh `syscall read()` thứ hai, ta sẽ gửi payload thứ hai bao gồm "A"*0x14 + (giá trị leak được chính là nơi ta ghi shellcode = esp+20) + shellcode, lúc này chương trình sẽ return về đúng shellcode mà ta cần.
 
+![layoutStack2.png](images/layoutStack2.png)
 
+Layout stack sau khi ta ghi đè return address bằng địa chỉ câu lệnh `mov ecx,esp` và chương trình return về địa chỉ đó. Khi thực hiện lệnh `ret` - địa chỉ hàm `_exit` bị đẩy ra khỏi stack và esp tăng lên 4 chỉ vào nơi mà ở đó lưu giá trị của esp (Ô nhớ lưu giá trị là địa chỉ của chính ô nhớ đó). Vì vậy ta sẽ in ra được giá trí chính là địa chỉ của ô nhớ trên stack đó - là nơi ta lưu shellcode.
+
+![layoutStack2.png](images/layoutStack2.png)
+
+Lần nhập thứ hai ta ghi đè địa chỉ trả về là địa chỉ leak được sau đó chính là shellcode. 
 
 # 4) Source code
 
