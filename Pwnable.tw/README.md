@@ -13,3 +13,14 @@
 |       03        |CVE-2018-1160| [CVE-2018-1160](./3_CVE-2018-1160)                            |
 |       04        |    calc     | [calc](./4_calc)                                              |
 |       05        |    3x17     | [3x17](./5_3x17)                                              |
+|       06        |  dubblesort | [dubblesort](./6_dubblesort)                                  |
+|       07        |  hacknote   | [hacknote](./7_hacknote)                                      |
+|       08        |Silver Bullet| [Silver Bullet](./8_Silver-Bullet)
+
+
+
+6_dubblesort
+
+7_hacknote
+
+8_Silver-Bullet
