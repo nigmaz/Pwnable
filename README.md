@@ -1,5 +1,5 @@
 # Pwnable
 
->Binary Exploitation writeup, practices and scripts...
+>Pwn writeup, practices and scripts...
 
 -----------------------------------------------------
