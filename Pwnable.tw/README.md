@@ -17,10 +17,3 @@
 |       07        |  hacknote   | [hacknote](./7_hacknote)                                      |
 |       08        |Silver Bullet| [Silver Bullet](./8_Silver-Bullet)
 
-
-
-6_dubblesort
-
-7_hacknote
-
-8_Silver-Bullet
