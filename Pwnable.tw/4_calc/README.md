@@ -12,7 +12,7 @@ Have you ever use Microsoft calculator?
 
 Ta tiến hành đọc và phân tích mã nguồn chương trình bằng IDA để tìm hướng khai thác.
 
-```
+```c
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
   ssignal(14, timeout);
@@ -26,7 +26,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 
 Hàm main của chương trình set timeout - chương trình sẽ tự động ngắt kết nối nếu không có tác động input đầu vào nào. Sau đó là gọi tới hàm `calc()`.
 
-```
+```c
 unsigned int calc()
 {
   int v1[101]; // [esp+18h] [ebp-5A0h] BYREF
