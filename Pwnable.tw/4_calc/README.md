@@ -10,9 +10,49 @@ Have you ever use Microsoft calculator?
 
 ![checksec.png](images/checksec.png)
 
-Chương trình khá đơn giản, nó yêu cầu một chuỗi đầu vào và cuối hàm main thì gọi tới con trỏ có giá trị là địa chỉ của chuỗi mà ta nhập vào. 
+Ta tiến hành đọc và phân tích mã nguồn chương trình bằng IDA để tìm hướng khai thác.
 
-![execute.png](images/execute.png)
+```
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  ssignal(14, timeout);
+  alarm(60);
+  puts("=== Welcome to SECPROG calculator ===");
+  fflush(stdout);
+  calc();
+  return puts("Merry Christmas!");
+}
+```
+
+Hàm main của chương trình set timeout - chương trình sẽ tự động ngắt kết nối nếu không có tác động input đầu vào nào. Sau đó là gọi tới hàm `calc()`.
+
+```
+unsigned int calc()
+{
+  int v1[101]; // [esp+18h] [ebp-5A0h] BYREF
+  char s[1024]; // [esp+1ACh] [ebp-40Ch] BYREF
+  
+  // canary
+  unsigned int v3; // [esp+5ACh] [ebp-Ch]
+  v3 = __readgsdword(0x14u);
+  
+  while ( 1 )
+  {
+    bzero(s, 0x400u);
+    if ( !get_expr(s, 1024) )
+      break;
+    init_pool(v1);
+    if ( parse_expr(s, v1) )
+    {
+      printf("%d\n", v1[v1[0]]);
+      fflush(stdout);
+    }
+  }
+  return __readgsdword(0x14u) ^ v3;
+}
+```
+
+
 
 # 2) Idea
 
