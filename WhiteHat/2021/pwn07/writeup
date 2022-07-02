@@ -1,0 +1,3 @@
+nc 103.229.41.18 5559
+
+ROP dynamic use puts x86-64
