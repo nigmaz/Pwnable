@@ -77,8 +77,7 @@ int __cdecl get_expr(int a1, int a2)
 }
 ```
 
-Hàm `get_expr()` được gọi từ hàm `calc()` với hai đối số là `int a1` được truyền chuỗi s từ hàm `calc()` và đối số thứ hai là `int a2` là số kí tự của chuỗi s - 1024. Hàm `get_expr()` đọc input từng byte một và kiếm tra xem kí tự đó có thỏa mãn là các kí tự (+, -, *, /, %, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) rồi lưu input vào chuỗi s, sau đó gán kí tự cuối cùng là `NULL`.
-
+Hàm `get_expr()` được gọi từ hàm `calc()` với hai đối số là `int a1` được truyền chuỗi s từ hàm `calc()` và đối số thứ hai là `int a2` là số kí tự của chuỗi s - 1024. Hàm `get_expr()` đọc input từng byte một và kiếm tra xem kí tự đó có thỏa mãn là các kí tự (+, -, *, /, %, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) rồi lưu input vào chuỗi s, sau đó gán kí tự cuối cùng là `NULL`. Giá trị trả về của hàm là v5 là độ dài của chuỗi `s`.
 
 ```c
 _DWORD *__cdecl init_pool(_DWORD *a1)
@@ -96,6 +95,8 @@ _DWORD *__cdecl init_pool(_DWORD *a1)
   return result;
 }
 ```
+
+...
 
 ```c
 int __cdecl parse_expr(int a1, _DWORD *a2)
