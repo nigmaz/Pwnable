@@ -1,0 +1,11 @@
+format string
+khai thac ba buoc:
+1) viet lai POW GOT de tro toi main de co the khai thac lai lo hong nhieu lan
+2) ro ri co so libc tu _libc_start_main
+3) viet lai strcspn GOT vao he thong
+
+strcspn dc goi vs ca A va B. Khi viet lai GOT de tro den he thong,
+chung toi co the chir can chuyen /bin/sh duoi dang mot so va no se cung cap 
+cho chung toi mot trinh bao
+
+
