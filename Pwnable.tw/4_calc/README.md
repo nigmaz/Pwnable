@@ -52,7 +52,7 @@ unsigned int calc()
 }
 ```
 
-Khai báo mảng số nguyên `v1[101]` có địa chỉ `[ebp-5A0h]`; mảng kí tự `s[1024]` có địa chỉ tại `[ebp-40Ch]`; v3 là `canary`. Hàm `bzero()` là hàm của thư viện, nó dùng để `NULL` 0x400 kí tự của chuỗi `s`. Sau đó từ hàm `calc()` gọi tới ba hàm khác là `get_expr()`, `init_pool` và `parse_expr`.  
+Khai báo mảng số nguyên `v1[101]` có địa chỉ `[ebp-5A0h]`; mảng kí tự `s[1024]` có địa chỉ tại `[ebp-40Ch]`; v3 là `canary` có địa chỉ tại `[ebp-Ch]`. Hàm `bzero()` là hàm của thư viện, nó dùng để `NULL` 0x400 kí tự của chuỗi `s`. Sau đó từ hàm `calc()` gọi tới ba hàm khác là `get_expr()`, `init_pool` và `parse_expr`.  
 
 ```c
 int __cdecl get_expr(int a1, int a2)
