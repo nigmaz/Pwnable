@@ -57,9 +57,10 @@ int __cdecl get_expr(int a1, int a2)
 {
   int v2; // eax
   char v4; // [esp+1Bh] [ebp-Dh] BYREF
+  
   int v5; // [esp+1Ch] [ebp-Ch]
-
   v5 = 0;
+  
   while ( v5 < a2 && read(0, &v4, 1) != -1 && v4 != 10 )
   {
     if ( v4 == 43 || v4 == 45 || v4 == 42 || v4 == 47 || v4 == 37 || v4 > 47 && v4 <= 57 )
