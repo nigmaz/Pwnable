@@ -1,0 +1,7 @@
+The flag file name is not in the normal format. Have fun with this challenge :xD
+
+Flag in folder /home/silence
+
+nc 192.81.209.60 2023
+
+Download: https://drive.google.com/file/d/1Y94uT-nc8_w-9TTx_Y9Ta6pDNx8l4RNj/view?usp=sharing

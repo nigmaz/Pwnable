@@ -1,0 +1,9 @@
+Just another heap challenge, be strong and creative :##
+
+Flag in /home/ruby/flag.txt
+
+nc 192.81.209.60 2024
+
+Download file: https://drive.google.com/file/d/1jKL7eITqGp-CuOfOVfLDd-SlNAudZWCJ/view?usp=sharing
+
+
