@@ -15,5 +15,5 @@
 |       05        |    3x17     | [3x17](./5_3x17)                                              |❌         |
 |       06        |  dubblesort | [dubblesort](./6_dubblesort)                                  |❌         |
 |       07        |  hacknote   | [hacknote](./7_hacknote)                                      |❌         |
-|       08        |Silver Bullet| [Silver Bullet](./8_Silver-Bullet)
+|       08        |Silver Bullet| [Silver Bullet](./8_Silver-Bullet)                            |❌         |
 
