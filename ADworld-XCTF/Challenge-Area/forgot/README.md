@@ -2,7 +2,7 @@
 
 >Tiến hành viết file [exploit.py](exploit.py) và khai thác:
 
-```bash
+```
 l1j9m4 in ~/0_PWNable_/ADworld_XCTF/Challenge/forgot λ python2 exploit.py
 [*] '/home/l1j9m4/0_PWNable_/ADworld_XCTF/Challenge/forgot/forgot_'
     Arch:     i386-32-little
