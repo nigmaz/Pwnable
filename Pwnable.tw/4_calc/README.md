@@ -52,6 +52,8 @@ unsigned int calc()
 }
 ```
 
+Khai báo mảng số nguyên `v1[101]` có địa chỉ `[ebp-5A0h]`; mảng kí tự `s[1024]` có địa chỉ tại `[ebp-40Ch]`; v3 là `canary`. Hàm `bzero()` là hàm của thư viện, nó dùng để `NULL` 0x400 kí tự của chuỗi `s`. Sau đó từ hàm `calc()` gọi tới ba hàm khác là `get_expr()`, `init_pool` và `parse_expr`.  
+
 ```c
 int __cdecl get_expr(int a1, int a2)
 {
@@ -61,9 +63,10 @@ int __cdecl get_expr(int a1, int a2)
   int v5; // [esp+1Ch] [ebp-Ch]
   v5 = 0;
   
-  while ( v5 < a2 && read(0, &v4, 1) != -1 && v4 != 10 )
+  while ( v5 < a2 && read(0, &v4, 1) != -1 && v4 != 10 ) // đọc input từng byte một kiểm tra nếu số kí tự nhập vào lớn hớn 1024 hoặc kí tự là newline thì dừng while.
   {
     if ( v4 == 43 || v4 == 45 || v4 == 42 || v4 == 47 || v4 == 37 || v4 > 47 && v4 <= 57 )
+    // v4 == '+' || v4 == '-' || v4 == '*' || v4 == '/' || v4 == '%' || v4 > '/' && v4 <= '9'  
     {
       v2 = v5++;
       *(_BYTE *)(a1 + v2) = v4;
@@ -73,6 +76,9 @@ int __cdecl get_expr(int a1, int a2)
   return v5;
 }
 ```
+
+Hàm `get_expr()` được gọi từ hàm `calc()` với hai đối số là `int a1` được truyền chuỗi s từ hàm `calc()` và đối số thứ hai là `int a2` là số kí tự của chuỗi s - 1024. Hàm `get_expr()` đọc input từng byte một và kiếm tra xem kí tự đó có thỏa mãn là các kí tự (+, -, *, /, %, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) rồi lưu input vào chuỗi s, sau đó gán kí tự cuối cùng là `NULL`.
+
 
 ```c
 _DWORD *__cdecl init_pool(_DWORD *a1)
