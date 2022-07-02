@@ -1,0 +1,13 @@
+nc 103.229.41.18 5556
+
+printf	/ func01
+  |
+fgets	/ func02 - input a1 = /bin/sh (turn3)
+  |
+printf	/ func03 - printf(a1) replace address printf_got = system_got so use system(a1) - system(/bin/sh) (turn2) use formatstrings
+  |
+puts	/ func03 - overwrite address main -> return again main -> call printf so use formatstrings turn(1)
+
+
+
+
