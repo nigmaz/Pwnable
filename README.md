@@ -1,5 +1,5 @@
 # Pwn
 
->Pwn writeup, practices and scripts...
+>Pwnable writeup, practices and scripts...
 
 -----------------------------------------------------
