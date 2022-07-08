@@ -86,9 +86,9 @@ Tăng giá trị esp lên 20 - nơi mà ở đầu hàm `_start` đã lưu trữ
 
 Thường những bài mà khi check secure flag `NX: NX disabled` và không có hàm giúp lấy shell hay đọc flag thì ý tưởng đầu tiên mình nghĩ tới là ghi shellcode vào chương trình sau đó điều khiển return address trỏ về shellcode. Ta sẽ giải quyết bài này theo ý tưởng đó nhưng có 2 vấn đề cần giải quyết:
 
-      1) Shellcode: Cái này thì ta có thể dễ dàng tìm thấy trên mạng hoặc tự viết cũng được miễn nó không quá dài vì input cho nhập tối đa 60 kí tự.
+- <b> Shellcode: Cái này thì ta có thể dễ dàng tìm thấy trên mạng hoặc tự viết cũng được miễn nó không quá dài vì input cho nhập tối đa 60 kí tự. </b>
       
-      2) Ta cần xác định được chính xác địa chỉ shellcode mà ta đã overwrite vào stack, để điều khiển return address trỏ về đúng vị trí shellcode.
+- <b> Ta cần xác định được chính xác địa chỉ shellcode mà ta đã overwrite vào stack, để điều khiển return address trỏ về đúng vị trí shellcode. </b>
 
 # 3) Exploit
 
