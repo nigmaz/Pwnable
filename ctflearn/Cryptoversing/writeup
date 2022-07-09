@@ -1,0 +1,6 @@
+Chỉ là một so sánh rất đơn giản. 
+Vì vậy, chúng tôi h_bO}EcDOR+G)uh(jl,vLXOR nửa đầu với 0x10 
+và nửa sau với 0x18:
+
+[chr(xor(ord(c), 0x10)) for c in "h_b0}EcDOR"]
+[chr(xor(ord(c), 0x18)) for c in "+G)uh(jl,vL"]

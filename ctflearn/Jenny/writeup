@@ -1,0 +1,12 @@
+Hint:
+Jenny, (alt. spelling J[e]ni), 
+found a nice Java program to reverse engineer. 
+It's Java, so it's easy to reverse engineer, 
+right (since there's a lot of decompilers out there)? 
+Prove to her that this is easy -- or hard -- good luck!
+
+Tutorial: https://www.youtube.com/watch?v=no00Ec3YxXc
+
+->flag: CTFlearn{N0w_1_kn0w_wh0_jen1_1s!11JNI_IS_SO_COOL!}
+
+-> java decompiler Procyon

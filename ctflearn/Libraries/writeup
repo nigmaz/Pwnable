@@ -1,0 +1,14 @@
+Hey! I just learned how to incorporate C++ code into Java through JNI! 
+I created a simple library in C and imported into Java. 
+Although, who cares about a security hole and portability when this is so much fun?
+
+
+Hint: Are strings always immutable?
+
+ssh lib@104.131.79.111 -p 1001
+pw: guest
+
+wu:
+https://github.com/onealmond/hacking-lab/blob/master/ctflearn/libraries/writeup.md
+
+
