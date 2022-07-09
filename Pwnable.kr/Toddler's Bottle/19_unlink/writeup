@@ -1,0 +1,7 @@
+https://danielgsecurityblog.blogspot.com/2022/01/pwnablekr-unlink-writeup.html
+
+1:nano /tmp/unlink.py
+2:python /tmp/unlink.py
+
+https://raz0r.name/writeups/writeup-pwnable-kr-unlink/
+

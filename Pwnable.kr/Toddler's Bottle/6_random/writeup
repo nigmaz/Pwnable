@@ -1,0 +1,5 @@
+https://jaimelightfoot.com/blog/pwnable-kr-random-walkthrough/
+
+if use gdb so could see value random writed in RAX register before instruction XOR
+
+

