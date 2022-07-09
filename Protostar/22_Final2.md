@@ -111,5 +111,7 @@ Khai thác
 
 [Final2](https://www.youtube.com/watch?v=2GVi8_9u5TY&list=PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN&index=38)
 
+[Medium](https://iphelix.medium.com/exploit-exercises-protostar-final-levels-72875b0c3387)
 
+[pwntester](http://www.pwntester.com/blog/2013/12/26/protostar-final0-3-write-ups/)
 
