@@ -2,4 +2,4 @@
 
 >Pwnable writeup, practices and scripts...
 
-Focus: Pwnable.tw, ADworld-XCTF, Protostar, 
+Focus: Pwnable.tw, ADworld-XCTF, Protostar, WhiteHat, picoCTF.
