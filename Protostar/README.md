@@ -4,5 +4,5 @@
 
 [+] Source: <https://exploit.education/protostar/>
 
-[+] ssh root@<ifconfig> | pass: godmode .
+[+] ssh root@{ifconfig} | pass: godmode .
 
