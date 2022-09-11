@@ -1,9 +1,0 @@
-Can you bypass this restricted service ?
-
-Flag in /home/ez_fmt/flag.txt
-
-nc 192.81.209.60 2022
-
-Download file: https://drive.google.com/file/d/1hXxRA9QCLqpZ4oH0IwiR8ZaGCTRl-n-m/view?usp=sharing
-
-
