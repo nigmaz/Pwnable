@@ -196,3 +196,9 @@ Tiến hành viết file [exploit.py](exploit.py) và khai thác:
 ![flag.png](images/flag.png)
 
 ------------------------------------------------------
+
+# REF:
+
+[+] https://medium.com/@natsu2912/calc-pwnable-tw-bf2d32061ae3
+
+[+] https://drx.home.blog/2019/04/07/pwnable-tw-calc/
