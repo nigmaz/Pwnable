@@ -1,6 +1,6 @@
 # PWNABLE.TW
 
->Author: l1j9m4
+>Author: Nigma
 
 - #### Link pwnable.tw profile: [https://pwnable.tw/user/30002](https://pwnable.tw/user/30002)
 
