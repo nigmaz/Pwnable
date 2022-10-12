@@ -15,7 +15,7 @@
 |       05        |    3x17     | [3x17](./5_3x17)                                              |✅         |
 |       06        |  dubblesort | [dubblesort](./6_dubblesort)                                  |✅         |
 |       07        |  hacknote   | [hacknote](./7_hacknote)                                      |✅         |
-|       08        |Silver Bullet| [Silver Bullet](./8_Silver Bullet)                            |✅         |
+|       08        |Silver Bullet| [Silver Bullet](https://github.com/NigmaZ/Pwnable/tree/main/Pwnable.tw/8_Silver%20Bullet)                            |✅         |
 |       09        |  applestore | [applestore](./9_applestore)                                  |✅         |
 |       10        |   Re-alloc  | [Re-alloc](./10_Re-alloc)                                     |❌         |
 
