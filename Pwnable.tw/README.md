@@ -24,6 +24,7 @@
 #!/usr/bin/env python3
 from pwn import *
 p = remote('chall.pwnable.tw', '10203')
+# FLAG{FastBiN_C0rruption_t0_BUrN_7H3_G4rd3n}
 
 elf = ELF('./vuln')
 libc = ELF('./libc.so.6')
