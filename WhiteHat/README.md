@@ -1,3 +1,0 @@
-# WhiteHat Wargame 
-
->Challenges Pwnable!!!
