@@ -1,1 +1,0 @@
-picoctf{l1jgm4}

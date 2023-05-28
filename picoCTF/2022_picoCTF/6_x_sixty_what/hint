@@ -1,5 +1,0 @@
-Jump to the second instruction (the one after the first push) in the flag function, if you're getting mysterious segmentation faults.
-
------------------------------
-x86_64 jump into first push  | 
------------------------------
