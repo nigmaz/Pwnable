@@ -20,13 +20,13 @@
 |       10        |   Re-alloc  | [Re-alloc](./10_Re-alloc)                                     |❌         |
 
 
-A. Challenge Description
-    1. Image description
-B. Overview
-    1. Binary Protection
-    2. Vulnerability Analysis - IDA, run binary
-    3. Idea Exploit
-C. Exploitation
-    1. Stage 1:
-    2. Stage 2:
-    3. Stage n:
+- A. Challenge Description
+    * 1. Image description
+- B. Overview
+    * 1. Binary Protection
+    * 2. Vulnerability Analysis - IDA, run binary
+    * 3. Idea Exploit
+- C. Exploitation
+    * 1. Stage 1:
+    * 2. Stage 2:
+    * 3. Stage n:
