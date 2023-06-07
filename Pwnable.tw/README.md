@@ -19,6 +19,7 @@
 |       09        |  applestore | [applestore](./9_applestore)                                  |✅         |
 |       10        |   Re-alloc  | [Re-alloc](./10_Re-alloc)                                     |❌         |
 
+## Layout writeup
 
 - A. Challenge Description
     * [1] Image description
