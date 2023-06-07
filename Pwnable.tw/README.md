@@ -21,12 +21,12 @@
 
 
 - A. Challenge Description
-    * [1]. Image description
+    * [1] Image description
 - B. Overview
-    * 1. Binary Protection
-    * 2. Vulnerability Analysis - IDA, run binary
-    * 3. Idea Exploit
+    * [1] Binary Protection
+    * [2] Vulnerability Analysis - IDA, run binary
+    * [3] Idea Exploit
 - C. Exploitation
-    * 1. Stage 1:
-    * 2. Stage 2:
-    * 3. Stage n:
+    * [1] Stage 1:
+    * [2] Stage 2:
+    * [3] Stage n:
