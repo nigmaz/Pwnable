@@ -4,7 +4,7 @@
 
 - #### Link pwnable.tw profile: [https://pwnable.tw/user/30002](https://pwnable.tw/user/30002)
 
-## List challenge solved
+## A. List challenge solved
 
 |    Số thứ tự    |  Thử thách  | Writeup                                                       | Hoàn thiện |
 | :-------------: | :---------: | :-----------------------------------------------------------: |:----------:|
@@ -19,7 +19,7 @@
 |       09        |  applestore | [applestore](./9_applestore)                                  |✅         |
 |       10        |   Re-alloc  | [Re-alloc](./10_Re-alloc)                                     |❌         |
 
-## Layout writeup
+## B. Layout writeup
 
 - A. Challenge Description
     * [1] Image description
