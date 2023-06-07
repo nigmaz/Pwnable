@@ -21,7 +21,7 @@
 
 
 - A. Challenge Description
-    * 1. Image description
+    * [1]. Image description
 - B. Overview
     * 1. Binary Protection
     * 2. Vulnerability Analysis - IDA, run binary
