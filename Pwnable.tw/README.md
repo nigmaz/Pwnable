@@ -1,6 +1,6 @@
 # PWNABLE.TW
 
->Author: Nigma
+>Author: Nigmaz
 
 - #### Link pwnable.tw profile: [https://pwnable.tw/user/30002](https://pwnable.tw/user/30002)
 
