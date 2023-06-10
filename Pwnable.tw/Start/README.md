@@ -53,7 +53,7 @@ Tiến hành phân tích chương trình bằng gdb, ta thấy chương trình g
 ```
 
 - Chương trinh bắt đầu thực thi từ hàm `_start`.
-- **(_start: 0 -> 12)** chương trình `"push esp"` - đẩy giá trị esp vào stack, sau đó `"push 0x804809d"` - đẩy địa chỉ hàm `_exit` vào stack để return về khi muốn kết thúc chương trình và khởi tạo giá trị cho các thanh ghi = 0 (xor eax, eax nghĩa là eax = 0).
+- **(_start: 0 -> 12)** Chương trình `"push esp"` - đẩy giá trị esp vào stack, sau đó `"push 0x804809d"` - đẩy địa chỉ hàm `_exit` vào stack để return về khi muốn kết thúc chương trình và khởi tạo giá trị cho các thanh ghi = 0 (xor eax, eax nghĩa là eax = 0).
 - **(_start: 14 -> 47)** Tiếp theo là thực hiện đưa dòng chữ `"Let's start the CTF:"` lên stack và chương trình gọi lệnh `sys_write()` dùng ngắt 0x80 đầu tiên để gọi các lệnh hệ thống `Linux Syscall` với các đối số là giá trị yêu cầu trên các thanh ghi eax = 4, để print vào stdout (ebx = 1), số lượng kí tự in 20 kí tự (edx = 0x14) tại địa chỉ esp (ecx = esp), mục đích là in dòng "Let's start the CTF:" ra màn hình.
 - **(_start: 49 -> 55)** Lệnh ngắt 0x80 thứ hai, eax = 3, chương trình gọi lệnh `sys_read()` đọc tối đa 60 kí tự (edx = 0x3c) từ stdin (ebx = 0), lưu vào stack tại vị trí esp (ecx = esp).
 - **(_start: 57 -> 60)** Tăng giá trị esp lên 20 - nơi lưu địa chỉ hàm `_exit` (thực hiện lưu ở đầu hàm `_start`, địa chỉ của hàm `_exit` lưu trên stack và return vể hàm `_exit` để kết thúc chương trình).
