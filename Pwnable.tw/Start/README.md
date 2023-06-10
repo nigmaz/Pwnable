@@ -57,7 +57,7 @@ Tiến hành phân tích chương trình bằng gdb, ta thấy chương trình g
 - **(_start: 14 -> 47)** Tiếp theo là thực hiện đưa dòng chữ `"Let's start the CTF:"` lên stack và chương trình gọi lệnh `sys_write()` dùng ngắt 0x80 đầu tiên để gọi các lệnh hệ thống `Linux Syscall` với các đối số là giá trị yêu cầu trên các thanh ghi eax = 4, để print vào stdout (ebx = 1), số lượng kí tự in 20 kí tự (edx = 0x14) tại địa chỉ esp (ecx = esp), mục đích là in dòng "Let's start the CTF:" ra màn hình.
 - **(_start: 49 -> 55)** Lệnh ngắt 0x80 thứ hai, eax = 3, chương trình gọi lệnh `sys_read()` đọc tối đa 60 kí tự (edx = 0x3c) từ stdin (ebx = 0), lưu vào stack tại vị trí esp (ecx = esp).
 - **(_start: 57 -> 60)** Tăng giá trị esp lên 20 - nơi lưu địa chỉ hàm `_exit` (thực hiện lưu ở đầu hàm `_start`, địa chỉ của hàm `_exit` lưu trên stack và return vể hàm `_exit` để kết thúc chương trình).
-- **(_exit: 0 -> 4)** Thực hiện syscall exit kết thúc chương trình.
+- **(_exit: 0 -> 4)** Thực hiện `sys_exit()` kết thúc chương trình.
 
 > Ta dễ dàng thấy được chương trình cho đọc vào đến 60 kí tự và lưu chúng trên stack(ghi đề lên dòng chữ "Let's start the CTF:"), trong khi sau đó chỉ tăng esp lên 20 và return về giá trị được lưu tại `esp + 20` => Xảy ra lỗi Stack Buffer Overflow dẫn đến ghi đè địa chỉ trả về.
 
