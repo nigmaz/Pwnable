@@ -4,7 +4,7 @@
 
 - #### Link pwnable.tw profile: [https://pwnable.tw/user/30002](https://pwnable.tw/user/30002)
 
-## [1] List challenge solved
+## List challenge solved
 
 |       STT       | CHALLENGES                                                    |   WRITEUP  |
 | :-------------: | :-----------------------------------------------------------: |:----------:|
@@ -25,15 +25,3 @@
 |       15        | [Spirited Away](./10_Re-alloc)                                |❌         |
 |       16        | [BabyStack](./10_Re-alloc)                                    |❌         |
 
-## [2] Layout writeup
-
-- A. Challenge Description
-    * [1] Image description
-- B. Overview
-    * [1] Binary Protection
-    * [2] Vulnerability Analysis - IDA, run binary
-    * [3] Idea Exploit
-- C. Exploitation
-    * [1] Stage 1:
-    * [2] Stage 2:
-    * [3] Stage n:
