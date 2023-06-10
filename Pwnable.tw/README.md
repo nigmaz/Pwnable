@@ -6,24 +6,24 @@
 
 ## [1] List challenge solved
 
-|    Số thứ tự    |  Thử thách  | Writeup                                                       | Hoàn thiện |
-| :-------------: | :---------: | :-----------------------------------------------------------: |:----------:|
-|       01        |    Start    | [Start](./1_Start)                                            |✅         |         
-|       02        |     orw     | [orw](./2_orw)                                                |✅         |
-|       03        |CVE-2018-1160| [CVE-2018-1160](./3_CVE-2018-1160)                            |❌         |
-|       04        |    calc     | [calc](./4_calc)                                              |✅         |
-|       05        |    3x17     | [3x17](./5_3x17)                                              |✅         |
-|       06        |  dubblesort | [dubblesort](./6_dubblesort)                                  |✅         |
-|       07        |   hacknote  | [hacknote](./7_hacknote)                                      |✅         |
-|       08        |Silver Bullet| [Silver Bullet](https://github.com/NigmaZ/Pwnable/tree/main/Pwnable.tw/8_Silver%20Bullet)                            |✅         |
-|       09        |  applestore | [applestore](./9_applestore)                                  |✅         |
-|       10        |   Re-alloc  | [Re-alloc](./10_Re-alloc)                                     |❌         |
-|       11        | Tcache Tear | [Tcache Tear](./10_Re-alloc)                                     |❌         |
-|       12        | seethefile  | [seethefile](./10_Re-alloc)                                     |❌         |
-|       13        | Death Note  | [Death Note](./10_Re-alloc)                                     |❌         |
-|       14        |  Starbound  | [Starbound](./10_Re-alloc)                                     |❌         |
-|       15        |Spirited Away| [Spirited Away](./10_Re-alloc)                                     |❌         |
-|       16        |  BabyStack  | [BabyStack](./10_Re-alloc)                                     |❌         |
+|       STT       | CHALLENGES                                                    |   WRITEUP  |
+| :-------------: | :-----------------------------------------------------------: |:----------:|
+|       01        | [Start](./1_Start)                                            |✅         |         
+|       02        | [orw](./2_orw)                                                |✅         |
+|       03        | [CVE-2018-1160](./3_CVE-2018-1160)                            |❌         |
+|       04        | [calc](./4_calc)                                              |✅         |
+|       05        | [3x17](./5_3x17)                                              |✅         |
+|       06        | [dubblesort](./6_dubblesort)                                  |✅         |
+|       07        | [hacknote](./7_hacknote)                                      |✅         |
+|       08        | [Silver Bullet](./)                                           |✅         |
+|       09        | [applestore](./9_applestore)                                  |✅         |
+|       10        | [Re-alloc](./10_Re-alloc)                                     |❌         |
+|       11        | [Tcache Tear](./10_Re-alloc)                                  |❌         |
+|       12        | [seethefile](./10_Re-alloc)                                   |❌         |
+|       13        | [Death Note](./10_Re-alloc)                                   |❌         |
+|       14        | [Starbound](./10_Re-alloc)                                    |❌         |
+|       15        | [Spirited Away](./10_Re-alloc)                                |❌         |
+|       16        | [BabyStack](./10_Re-alloc)                                    |❌         |
 
 ## [2] Layout writeup
 
