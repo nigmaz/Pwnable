@@ -83,7 +83,7 @@ Thường những bài mà khi check Binary Mitigations `NX: NX disabled` và kh
 
 > Lưu ý khi viết script exploit, payload lần thứ nhất để leak stack address nếu dùng sendline sẽ tự thêm '\x0a' vào cuối payload dẫn đến ghi đề byte cuối thành '\x0a' **[ở trong ảnh minh họa là byte \x30 => \x0a]**. Giá trị khi đó vẫn là một stack address nhưng dẫn tới sai offset tính toán địa chỉ shellcode mà ta viết trên stack.
 
-### __[2] Stage 2: Shellcode__
+### [2] Stage 2: Shellcode
 
 - Chương trình sẽ tiếp tục với một lệnh `syscall read()` thứ hai, ta sẽ gửi payload thứ hai bao gồm "A"*0x14 + (giá trị leak được chính là nơi ta ghi shellcode = esp+20) + shellcode, lúc này chương trình sẽ return về địa chỉ bắt đầu của shellcode **syscall execve**.
 
