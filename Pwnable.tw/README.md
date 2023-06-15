@@ -11,11 +11,11 @@
 |       01        | [Start](./Start)                                              |✅         |         
 |       02        | [orw](./orw)                                                  |✅         |
 |       03        | [CVE-2018-1160](./CVE-2018-1160)                              |✅         |
-|       04        | [calc](./4_calc)                                              |❌         |
-|       05        | [3x17](./5_3x17)                                              |❌         |
-|       06        | [dubblesort](./6_dubblesort)                                  |❌         |
-|       07        | [hacknote](./7_hacknote)                                      |❌         |
-|       08        | [Silver Bullet](./)                                           |❌         |
+|       04        | [calc](./calc)                                                |❌         |
+|       05        | [3x17](./3x17)                                                |❌         |
+|       06        | [dubblesort](./dubblesort)                                    |❌         |
+|       07        | [hacknote](./hacknote)                                        |❌         |
+|       08        | [Silver Bullet](./Silver Bullet)                              |❌         |
 |       09        | [applestore](./9_applestore)                                  |❌         |
 |       10        | [Re-alloc](./10_Re-alloc)                                     |❌         |
 |       11        | [Tcache Tear](./10_Re-alloc)                                  |❌         |
