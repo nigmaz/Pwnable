@@ -15,15 +15,15 @@
 |       05        | [3x17](./3x17)                                                |❌         |
 |       06        | [dubblesort](./dubblesort)                                    |❌         |
 |       07        | [hacknote](./hacknote)                                        |❌         |
-|       08        | [Silver Bullet](./Silver Bullet)                              |❌         |
-|       09        | [applestore](./9_applestore)                                  |❌         |
-|       10        | [Re-alloc](./10_Re-alloc)                                     |❌         |
-|       11        | [Tcache Tear](./10_Re-alloc)                                  |❌         |
-|       12        | [seethefile](./10_Re-alloc)                                   |❌         |
-|       13        | [Death Note](./10_Re-alloc)                                   |❌         |
-|       14        | [Starbound](./10_Re-alloc)                                    |❌         |
-|       15        | [Spirited Away](./10_Re-alloc)                                |❌         |
-|       16        | [BabyStack](./10_Re-alloc)                                    |❌         |
+|       08        | [Silver Bullet](./Silver%20Bullet)                            |❌         |
+|       09        | [applestore](./applestore)                                    |❌         |
+|       10        | [Re-alloc](./Re-alloc)                                        |❌         |
+|       11        | [Tcache Tear](./Tcache%20Tear)                                |❌         |
+|       12        | [seethefile](./seethefile)                                    |❌         |
+|       13        | [Death Note](./Death%20Note)                                  |❌         |
+|       14        | [Starbound](./Starbound)                                      |❌         |
+|       15        | [Spirited Away](./Spirited%20Away)                            |❌         |
+|       16        | [BabyStack](./BabyStack)                                      |❌         |
 |       17        |                                    |❌         |
 |       18        |                                  |❌         |
 |       19        |                                   |❌         |
