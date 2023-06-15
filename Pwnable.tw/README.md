@@ -6,7 +6,7 @@
 
 ## [+] List challenge solved
 
-|       STT       | CHALLENGES                                                    |   WRITEUP  |                     |       STT       | CHALLENGES                                                    |   WRITEUP  |
+|       STT       | CHALLENGES                                                    |   WRITEUP  |
 | :-------------: | :-----------------------------------------------------------: |:----------:|
 |       01        | [Start](./Start)                                              |✅         |         
 |       02        | [orw](./orw)                                                  |✅         |
