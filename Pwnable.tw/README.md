@@ -24,13 +24,13 @@
 |       14        | [Starbound](./Starbound)                                      |❌         |
 |       15        | [Spirited Away](./Spirited%20Away)                            |❌         |
 |       16        | [BabyStack](./BabyStack)                                      |❌         |
-|       17        |                                    |❌         |
-|       18        |                                  |❌         |
-|       19        |                                   |❌         |
-|       20        |                                    |❌         |
-|       21        |                                    |❌         |
-|       22        |                                     |❌         |
-|       23        |                                     |❌         |
+|       17        | [CVE-2018-10387](./CVE-2018-10387)                            |❌         |
+|       18        | [Bounty Program α](./Bounty%20Program%20α)                    |❌         |
+|       19        | [Secret Garden](./Secret%20Garden)                            |❌         |
+|       20        | [Alive Note](./Alive%20Note)                                  |❌         |
+|       21        | [BookWriter](./BookWriter)                                    |❌         |
+|       22        | [CAOV](./CAOV)                                                |❌         |
+|       23        | [Heap Paradise](./Heap%20Paradise)                            |❌         |
 
 
 
