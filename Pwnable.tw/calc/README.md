@@ -273,27 +273,27 @@ _DWORD *__cdecl eval(_DWORD *a1, char a2)
 - Ở đây mình sẽ lấy thẳng vd để mô tả lại quá trình tính toán này.
 
 - VD: Nhập biểu thức 100+1+2
-    * `1.`Biến đếm cộng một tức là `numbers[0] += 1`, sau đó số `100` đưa vào `numbers[1]`, lưu dấu cộng vào `s[cnt++]`.
+    * `1.`Biến đếm cộng một tức là `numbers[0] += 1`, sau đó số `100` đưa vào `numbers[1]`, lưu dấu cộng vào `s[cnt++]` .
     
     `<addr_numbers>: 0x0001 | 0x0064 | 0x0000 | 0x0000`
 
-    * `2.`Biến đếm cộng một tức là `numbers[0] += 1`, sau đó số `1` đưa vào `numbers[2]`.
+    * `2.`Biến đếm cộng một tức là `numbers[0] += 1`, sau đó số `1` đưa vào `numbers[2]` .
     
     `<addr_numbers>: 0x0002 | 0x0064 | 0x0001 | 0x0000`
     
-    * `3.`Có toán tử được lưu => tính toán đi vào hàm `eval()`, tính `100 + 1 = 101` và đưa kết quả 101 vào `numbers[1]`, biến đếm `numbers[0] -= 1`.
+    * `3.`Có toán tử được lưu => tính toán đi vào hàm `eval()`, tính `100 + 1 = 101` và đưa kết quả 101 vào `numbers[1]`, biến đếm `numbers[0] -= 1` .
     
     `<addr_numbers>: 0x0001 | 0x0065 | 0x0001 | 0x0000`
     
-    * `4.`Biến đếm cộng một tức là `numbers[0] += 1`, sau đó số `2` đưa vào `numbers[2]`, lưu dấu cộng vào `s[cnt--]`.
+    * `4.`Biến đếm cộng một tức là `numbers[0] += 1`, sau đó số `2` đưa vào `numbers[2]`, lưu dấu cộng vào `s[cnt--]` .
     
     `<addr_numbers>: 0x0002 | 0x0065 | 0x0002 | 0x0000`
     
-    * `5.`Có toán tử được lưu => tính toán đi vào hàm `eval()`, tính `101 + 2 = 103` và đưa kết quả 103 vào `numbers[1]`, biến đếm `numbers[0] -= 1`.
+    * `5.`Có toán tử được lưu => tính toán đi vào hàm `eval()`, tính `101 + 2 = 103` và đưa kết quả 103 vào `numbers[1]`, biến đếm `numbers[0] -= 1` .
     
     `<addr_numbers>: 0x0001 | 0x0067 | 0x0002 | 0x0000`
     
-    * `6.`Kết thúc biểu thức khi `*(_BYTE *)(i + a1)` = NULL, Tiến hành in kết quả `103` tương ứng với đoạn mã trong hàm `calc()` : 
+    * `6.`Kết thúc biểu thức khi `*(_BYTE *)(i + a1)` = NULL, Tiến hành in kết quả `103` tương ứng với đoạn mã trong hàm `calc()` . 
 
 ```c
 printf("%d\n", numbers[numbers[0]]); <=> printf("%d\n", numbers[1]);
@@ -310,15 +310,15 @@ __NOTE:__ khi có phép nhân và chia mọi thứ sẽ phức tạp hơn do đ�
 ![error3.png](./images/error3.png)
 
 - __VD nhập +500__:
-    * `1.` Biến numbers[0] += 1 và số 500 được đưa vào numbers[1].
+    * `1.` Biến numbers[0] += 1 và số 500 được đưa vào numbers[1] .
     
     `<addr_number>: 0x0001 | 0x01f4 | 0x0000 | 0x0000`
     
-    * `2.` Chương trình đi vào hàm `eval()` xảy ra lỗi logic => tính phép toán `1 + 500 = 501` và đưa giá trị `501` vào __number[0]__, biến __number[0]__ `-= 1` => __number[0]__ = 500.
+    * `2.` Chương trình đi vào hàm `eval()` xảy ra lỗi logic => tính phép toán `1 + 500 = 501` và đưa giá trị `501` vào __number[0]__, biến __number[0]__ `-= 1` => __number[0]__ = 500 .
     
     `<addr_number>: 0x01f4 | 0x01f4 | 0x0000 | 0x0000`
     
-    * `3.` Chương trình printf giá trị `numbers[numbers[0]]` = numbers[500] = 26
+    * `3.` Chương trình printf giá trị `numbers[numbers[0]]` = numbers[500] = 26 .
 
 >Như vậy, chúng ta có thể leak giá trị ở bất kì địa chỉ nào tùy ý trên STACK.
 
@@ -346,23 +346,23 @@ gdb> stack 370
 
 - Ví dụ ta nhập +500+30:
 
-    * `1.` Biến numbers[0] += 1 và số 500 được đưa vào numbers[1].
+    * `1.` Biến numbers[0] += 1 và số 500 được đưa vào numbers[1] .
     
     `<addr_numbers>: 0x0001 | 0x01f4 | 0x0000 | 0x0000`
     
-    * `2.` Chương trình đi vào hàm `eval()` để tính phép toán `1 + 500 = 501` và đưa giá trị 501 vào numbers[0], biến numbers[0] -= 1.
+    * `2.` Chương trình đi vào hàm `eval()` để tính phép toán `1 + 500 = 501` và đưa giá trị 501 vào numbers[0], biến numbers[0] -= 1 .
     
     `<addr_numbers>: 0x01f4 | 0x01f4 | 0x0000 | 0x0000`
     
     `<addr_numbers[500]>: 0x01a (0x1a = 26)`
     
-    * `3.` Biến `numbers[0] += 1` và số 30 được đưa vào `numbers[501]`
+    * `3.` Biến `numbers[0] += 1` và số 30 được đưa vào `numbers[501]` .
     
     `<addr_numbers>: 0x01f5 | 0x01f4 | 0x0000 | 0x0000`
     
     `<addr_numbers[500]>: 0x01a 0x01e`
     
-    * `4.` Chương trình đi vào hàm eval() để tính phép toán `0x1a + 0x1e = 0x38` và đưa giá trị 0x38 vào numbers[500], biến numbers[0] -= 1
+    * `4.` Chương trình đi vào hàm eval() để tính phép toán `0x1a + 0x1e = 0x38` và đưa giá trị 0x38 vào numbers[500], biến numbers[0] -= 1 .
     
     `<addr_numbers>: 0x01f4 0x01f4 0x0000 0x0000`
     
@@ -441,3 +441,4 @@ gdb> stack 370
 - Tiến hành viết file [exp.py](./exp.py) và khai thác:
 
 ![flag.png](./images/flag.png)
+
