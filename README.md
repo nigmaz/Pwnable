@@ -9,7 +9,7 @@ __Focus CTF:__
 - [redpwn CTF](https://ctf.redpwn.net/) . 
 - [w3challs CTF](https://w3challs.com/challenges/list/pwn) . 
 - [hxp CTF](https://2020.ctf.link/) .
-- [Hackthebox](https://app.hackthebox.com/challenges) - __CTF + LAB__.
+- [Hackthebox(CTF + LAB)](https://app.hackthebox.com/challenges) .
 
 __Practice Heap:__
 
