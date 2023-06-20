@@ -275,23 +275,23 @@ _DWORD *__cdecl eval(_DWORD *a1, char a2)
 - VD: Nhập biểu thức 100+1+2
     * `1.`Biến đếm cộng một tức là `numbers[0] += 1`, sau đó số `100` đưa vào `numbers[1]`, lưu dấu cộng vào `s[cnt++]` .
     
-    `<addr_numbers>: 0x0001 | 0x0064 | 0x0000 | 0x0000`
+    __<addr_numbers>: 0x0001 | 0x0064 | 0x0000 | 0x0000__
 
     * `2.`Biến đếm cộng một tức là `numbers[0] += 1`, sau đó số `1` đưa vào `numbers[2]` .
     
-    `<addr_numbers>: 0x0002 | 0x0064 | 0x0001 | 0x0000`
+    __<addr_numbers>: 0x0002 | 0x0064 | 0x0001 | 0x0000__
     
     * `3.`Có toán tử được lưu => Vào hàm `eval()`, tính `100 + 1 = 101` và đưa kết quả 101 vào `numbers[1]`, biến đếm `numbers[0] -= 1` .
     
-    `<addr_numbers>: 0x0001 | 0x0065 | 0x0001 | 0x0000`
+    __<addr_numbers>: 0x0001 | 0x0065 | 0x0001 | 0x0000__
     
     * `4.`Biến đếm cộng một tức là `numbers[0] += 1`, sau đó số `2` đưa vào `numbers[2]`, lưu dấu cộng vào `s[cnt--]` .
     
-    `<addr_numbers>: 0x0002 | 0x0065 | 0x0002 | 0x0000`
+    __<addr_numbers>: 0x0002 | 0x0065 | 0x0002 | 0x0000__
     
-    * `5.`Có toán tử được lưu => tính toán đi vào hàm `eval()`, tính `101 + 2 = 103` và đưa kết quả 103 vào `numbers[1]`, biến đếm `numbers[0] -= 1` .
+    * `5.`Có toán tử được lưu => Vào hàm `eval()`, tính `101 + 2 = 103` và đưa kết quả 103 vào `numbers[1]`, biến đếm `numbers[0] -= 1` .
     
-    `<addr_numbers>: 0x0001 | 0x0067 | 0x0002 | 0x0000`
+    __<addr_numbers>: 0x0001 | 0x0067 | 0x0002 | 0x0000__
     
     * `6.`Kết thúc biểu thức khi `*(_BYTE *)(i + a1)` = NULL, Tiến hành in kết quả `103` tương ứng với đoạn mã trong hàm `calc()` . 
 
