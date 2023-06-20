@@ -190,9 +190,9 @@ int __cdecl parse_expr(int a1, _DWORD *a2)
     * Lưu các số cần tính toán vào phía sau `numbers[0]` - cũng trong mảng `numbers[]`.
 - Sau đó là kiểm tra toán tử, nếu sau toán tử đã được tìm thấy ở trên (chỗ nhảy vào điều kiện để xử lý nếu là +, -, *, /, %) vẫn tiếp tục xuất hiện các ký tự là toán tử tiếp thì báo lỗi `"expression error!"` (điều kiện này là để xử lý trường hợp vd 100++1 thì xuất hiện hai toán tử liền kề => lỗi phép toán).
 
-![error2.png](./images/error2.png)
-
 - Cuối cùng là dòng mã xử lý đặt biến tạm là vị trí ngay sau toán tử, cái này là để sau khi tính toán phía dưới thì quay lại tiếp tục xử lý các số và toán tử còn lại trong chuỗi biểu thức mà ta nhập vào.
+
+![error2.png](./images/error2.png)
 
 - __Phân tích 3:__
 
