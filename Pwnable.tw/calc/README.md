@@ -362,7 +362,7 @@ gdb> stack 370
     
     __<addr_numbers[500]>: 0x01a 0x01e__
     
-    * `4.` Chương trình đi vào hàm eval() để tính phép toán `0x1a + 0x1e = 0x38` và đưa giá trị 0x38 vào numbers[500], biến numbers[0] -= 1 .
+    * `4.` Chương trình vào hàm eval() để tính phép toán `0x1a + 0x1e = 0x38` và đưa giá trị 0x38 vào numbers[500], biến numbers[0] -= 1 .
     
     __<addr_numbers>: 0x01f4 0x01f4 0x0000 0x0000__
     
