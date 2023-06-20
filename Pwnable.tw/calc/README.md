@@ -281,7 +281,7 @@ _DWORD *__cdecl eval(_DWORD *a1, char a2)
     
     `<addr_numbers>: 0x0002 | 0x0064 | 0x0001 | 0x0000`
     
-    * `3.`Có toán tử được lưu => tính toán đi vào hàm `eval()`, tính `100 + 1 = 101` và đưa kết quả 101 vào `numbers[1]`, biến đếm `numbers[0] -= 1` .
+    * `3.`Có toán tử được lưu => Vào hàm `eval()`, tính `100 + 1 = 101` và đưa kết quả 101 vào `numbers[1]`, biến đếm `numbers[0] -= 1` .
     
     `<addr_numbers>: 0x0001 | 0x0065 | 0x0001 | 0x0000`
     
