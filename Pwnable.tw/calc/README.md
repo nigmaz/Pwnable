@@ -312,11 +312,11 @@ __NOTE:__ khi có phép nhân và chia mọi thứ sẽ phức tạp hơn do đ�
 - __VD nhập +500__:
     * `1.` Biến numbers[0] += 1 và số 500 được đưa vào numbers[1] .
     
-    `<addr_number>: 0x0001 | 0x01f4 | 0x0000 | 0x0000`
+    __<addr_number>: 0x0001 | 0x01f4 | 0x0000 | 0x0000__
     
-    * `2.` Chương trình đi vào hàm `eval()` xảy ra lỗi logic => tính phép toán `1 + 500 = 501` và đưa giá trị `501` vào __number[0]__, biến __number[0]__ `-= 1` => __number[0]__ = 500 .
+    * `2.` Vào hàm `eval()` xảy ra lỗi logic => tính `1 + 500 = 501` và đưa `501` vào __number[0]__, biến __number[0]__ `-= 1` => __number[0]__ = 500 .
     
-    `<addr_number>: 0x01f4 | 0x01f4 | 0x0000 | 0x0000`
+    __<addr_number>: 0x01f4 | 0x01f4 | 0x0000 | 0x0000__
     
     * `3.` Chương trình printf giá trị `numbers[numbers[0]]` = numbers[500] = 26 .
 
