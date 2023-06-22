@@ -1,6 +1,6 @@
 # [pwnable.tw] - orw
 
-<img src="./images/orw.png" alt="Start" width="500" height="300">
+<img src="./images/orw.png" alt="orw" width="500" height="300">
 
 ## A. CHALLENGE 
 
