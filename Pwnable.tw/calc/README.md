@@ -1,6 +1,6 @@
 # [pwnable.tw] - calc
 
-<img src="./images/calc.png" alt="Start" width="550" height="300">
+<img src="./images/calc.png" alt="calc" width="550" height="300">
 
 ## A. CHALLENGE 
 
