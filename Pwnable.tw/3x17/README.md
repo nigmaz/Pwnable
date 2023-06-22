@@ -1,6 +1,6 @@
 # [pwnable.tw] - 3x17
 
-<img src="./images/3x17.png" alt="Start" width="550" height="300">
+<img src="./images/3x17.png" alt="3x17" width="550" height="300">
 
 ## A. CHALLENGE 
 
