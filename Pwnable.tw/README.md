@@ -12,7 +12,7 @@
 |       02        | [orw](./orw)                                  |✅         |       25        | [MnO2](./MnO2)                                   |❌         |
 |       03        | [CVE-2018-1160](./CVE-2018-1160)              |✅         |       26        | [Secret Of My Heart](./Secret%20Of%20My%20Heart) |❌         |
 |       04        | [calc](./calc)                                |✅         |       27        | [Kidding](./Kidding)                             |❌         |
-|       05        | [3x17](./3x17)                                |❌         |       28        | [WannaHeap](./WannaHeap)                         |❌         |
+|       05        | [3x17](./3x17)                                |✅         |       28        | [WannaHeap](./WannaHeap)                         |❌         |
 |       06        | [dubblesort](./dubblesort)                    |❌         |       29        | [Printable](./Printable)                         |❌         |
 |       07        | [hacknote](./hacknote)                        |❌         |       30        | [HITCON FTP](./HITCON%20FTP)                     |❌         |
 |       08        | [Silver Bullet](./Silver%20Bullet)            |❌         |       31        | [Stupid Robot](./Stupid%20Robot)                 |❌         |
