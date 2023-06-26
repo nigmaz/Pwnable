@@ -1,4 +1,4 @@
-# [pwnable.tw] - 3x17
+# [pwnable.tw] - dubblesort
 
 <img src="./images/dubblesort.png" alt="dubblesort" width="550" height="300">
 
