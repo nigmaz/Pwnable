@@ -1,4 +1,4 @@
-# [pwnable.tw] - 3x17
+# [pwnable.tw] - hacknote
 
 <img src="./images/hacknote.png" alt="hacknote" width="550" height="300">
 
