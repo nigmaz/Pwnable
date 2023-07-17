@@ -8,16 +8,16 @@
 
 ## 01. Jarvis
 
-![htb1.jpg](./images/htb1.jpg)
+<img src="./images/htb1.jpg" alt="Jarvis" width="600" height="600">
 
 ## 02. Paper
 
-![htb2.jpg](./images/htb2.jpg)
+<img src="./images/htb2.jpg" alt="Paper" width="600" height="600">
 
 ## 03. Shocker
 
-![htb3.jpg](./images/htb3.jpg)
+<img src="./images/htb3.jpg" alt="Shocker" width="600" height="600">
 
 ## 04. Forrest
 
-![htb4.jpg](./images/htb4.jpg)
+<img src="./images/htb4.jpg" alt="Forrest" width="600" height="600">
