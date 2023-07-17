@@ -4,7 +4,7 @@
 
 ## 00. Lame
 
-<img src="./images/htb0.jpg" alt="Lame" width="550" height="550">
+<img src="./images/htb0.jpg" alt="Lame" width="600" height="600">
 
 ## 01. Jarvis
 
