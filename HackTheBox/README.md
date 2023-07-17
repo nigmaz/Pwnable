@@ -4,7 +4,7 @@
 
 ## 00. Lame
 
-![htb0.jpg](./images/htb0.jpg)
+<img src="./images/htb0.jpg" alt="Lame" width="550" height="300">
 
 ## 01. Jarvis
 
