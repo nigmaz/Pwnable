@@ -18,3 +18,4 @@
 
 - __References:__
     * https://ctf2019.hitcon.org/ .
+    * https://2023.ctf.zer0pts.com/tasks/ .
