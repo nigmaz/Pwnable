@@ -7,7 +7,7 @@
   * [+] [ADworld-XCTF](https://adworld.xctf.org.cn/challenges/list) . 
   * [ringzer0ctf](https://ringzer0ctf.com/challenges) .
   * [redpwn CTF](https://ctf.redpwn.net/) . 
-  * [w3challs CTF](https://w3challs.com/challenges/list/pwn) . 
+  * [W3Challs CTF](https://w3challs.com/challenges/list/pwn) . 
   * [hxp CTF](https://2020.ctf.link/) .
   * [Hackthebox(CTF + LAB)](https://app.hackthebox.com/challenges) .
 
