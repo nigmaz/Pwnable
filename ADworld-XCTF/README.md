@@ -1,4 +1,4 @@
-# PWN - ADworld-XCTF
+# ADworld-XCTF
 
 >Thử thách [Pwnable](https://adworld.xctf.org.cn/challenges/list) của ADworld-XCTF !!!
 
