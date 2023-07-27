@@ -1,2 +1,2 @@
-# Pwnage Linux
-> ringzer0ctf: [Pwnage Linux](https://ringzer0ctf.com/challenges)
+# RINGZERO-OnlineCTF
+> [Pwnage Linux](https://ringzer0ctf.com/challenges)
