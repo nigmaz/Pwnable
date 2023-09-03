@@ -19,3 +19,4 @@
     * https://ctf2019.hitcon.org/ .
     * https://2023.ctf.zer0pts.com/tasks/ .
     * https://2023.imaginaryctf.org/Challenges
+    * https://play.duc.tf/
