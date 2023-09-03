@@ -1,4 +1,4 @@
-# HackTheBox
+# Lab-HackTheBox
 
 > Link: [CyberJutsu-Post](https://www.facebook.com/CyberJutsu/posts/pfbid02jZt268egd32CECHH6djE242zcX7MQnsH6YmA16peCn2hDDdcUSsziheJZvnExZe9l) .
 
