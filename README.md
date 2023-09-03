@@ -6,8 +6,7 @@
   * `[+]` [Pwnable.tw](https://pwnable.tw/) . 
   * `[+]` [ADworld-XCTF](https://adworld.xctf.org.cn/challenges/list) .
   * `[+]` [Hackthebox(CTF + LAB)](https://app.hackthebox.com/challenges) .
-  * [ringzer0ctf](https://ringzer0ctf.com/challenges) .
-  * [redpwn CTF](https://ctf.redpwn.net/) . 
+  * [ringzer0ctf](https://ringzer0ctf.com/challenges) . 
   * [W3Challs CTF](https://w3challs.com/challenges/list/pwn) . 
   * [hxp CTF](https://2020.ctf.link/) .
 
