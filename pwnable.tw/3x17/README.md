@@ -64,9 +64,9 @@ _start endp
 
 >[THAM KHẢO](https://blog.k3170makan.com/2018/10/introduction-to-elf-format-part-v.html) .
 
-- Tóm lại .fini_array nằm ở địa chỉ 0x4b40f0, hàm gọi .fini_array - `__libc_csu_fini()` nằm ở địa chỉ 0x402960 và địa chỉ hàm main là 0x401b6d.
+- Tóm lại .fini_array nằm ở địa chỉ 0x4b40f0, hàm gọi .fini_array là hàm `__libc_csu_fini()` nằm ở địa chỉ 0x402960 và địa chỉ hàm main là 0x401b6d.
 
-- Ý tưởng khái thác:
+- Ý tưởng khai thác:
     * Ta sẽ ghi đè vào vị trí của .fini_array như sau `payload = p64(0x402960) + p64(0x401b6d)` tương ứng .fini_array[0] = `__libc_csu_fini()`, .fini_array[1] = `main`.
     => Khi chương trình kết thúc **main() =>  __libc_csu_fini(){call main() => call __libc_csu_fini(){call main{} => call ...}}** sinh ra vòng lặp vô tận.
     * Còn 1 vấn đề nữa là đầu mỗi hàm main() được gọi lại thì có 1 so sánh với 1 biến global check = 1 và cộng thêm vào đó 1 nhưng theo code asm thì cmp 1 byte nên khi có vòng lặp vô tận giá trị khi add thêm 0x1 sẽ tăng dần đến 0x101 và khi cmp 1 byte thì byte cmp là 0x01 => hợp lệ. Cứ như vậy 0x201, 0x301 0x401,... cũng hợp lệ và mỗi lần hợp lệ ta sẽ được ghi tùy ý vào địa chỉ bất kỳ.       
