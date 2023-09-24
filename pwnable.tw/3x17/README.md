@@ -60,7 +60,7 @@ _start endp
 
 ![__libc_csu_fini.png](./images/__libc_csu_fini.png)
 
-- Code assemble của hàm `__libc_csu_fini()` ở dòng `call    qword ptr [rbp+rbx*8+0]` thì với rbp sẽ mang giá trị của .fini_array (ở bài này là 0x4b40f0) và rbx sẽ nhận giá trị 1 trước (gọi .fini_array[1] trước không thoát thì gọi .fini_array[0]).
+- Code assemble của hàm `__libc_csu_fini()`: ở dòng có nội dung là `call    qword ptr [rbp+rbx*8+0]` thì với rbp sẽ mang giá trị của .fini_array (ở bài này là 0x4b40f0) và rbx sẽ nhận giá trị 1 trước (gọi .fini_array[1] trước không thoát thì gọi .fini_array[0]).
 
 >[THAM KHẢO](https://blog.k3170makan.com/2018/10/introduction-to-elf-format-part-v.html) .
 
