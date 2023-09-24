@@ -55,7 +55,7 @@ _start endp
 - Vì bài này xóa hết tên các hàm nên lấy VD sẽ khó cho người mới có thể nhìn nên mình lấy VD của 1 chương trình tương tự 64-bit khác. Lý thuyết là gọi hàm `__libc_start_main_ptr` với các đối số  là các hàm lần lượt được thực thi `__libc_csu_init` (hàm này call các hàm trong `.init_array`) => `main` => `__libc_csu_fini` (hàm này call các hàm trong `.fini_array`).
 
 - Section `.fini_array` gồm 2 entry:
-    * `_do_global_dtors_aux` - .fini_array[0]: gọi các destructors khi .fini_array ko được xác định (Hiểu đơn giản thì là hàm `__libc_csu_fini` sẽ gọi `foo_destructor` trước bình thường thì hàm hủy đó sẽ dẫn đến thoát chương trình nhưng nếu bị ghi đè bởi giá trị khác hoặc lỗi do định nghĩa dẫn đến ko thoát chương trình bình thưởng thì sẽ gọi tới tất cả các destructor đươc định nghĩa khác).
+    * `_do_global_dtors_aux` - .fini_array[0]: gọi các destructors khi .fini_array không được xác định (Hiểu đơn giản thì là hàm `__libc_csu_fini` sẽ gọi `foo_destructor` trước và đúng luồng thực thi chương trình bình thường thì hàm hủy đó sẽ dẫn đến thoát chương trình nhưng nếu bị ghi đè bởi giá trị khác hoặc lỗi do định nghĩa dẫn đến không thoát chương trình bình thường thì sẽ gọi tới tất cả các destructor đươc định nghĩa khác).
     * `foo_destructor` - .fini_array[1]: địa chỉ của hàm `destructor()`.
 
 ![__libc_csu_fini.png](./images/__libc_csu_fini.png)
